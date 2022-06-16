@@ -1,7 +1,14 @@
-import './App.css';
+import Home from './Components/Home/Home';
+import Ui from './Components/UI/Ui';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
-	return <div className="App"></div>;
+	return (
+		<>
+			<Home />
+			<Ui />
+		</>
+	);
 }
 
 export default App;
