@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function Body() {
 	return (
 		<>
@@ -12,9 +14,9 @@ function Body() {
 					</h2>
 
 					<button className="home-content-btn">
-						<a href="./ui.html" className="home-content-btn__link-ui">
+						<Link to="/Ui" className="home-content-btn__link-ui">
 							Create Text
-						</a>
+						</Link>
 					</button>
 				</section>
 
