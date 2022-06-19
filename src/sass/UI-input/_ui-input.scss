@@ -22,8 +22,9 @@ ul.ui-input-nav-lists {
 	&-container {
 		background-color: $uiPrimary;
 		padding: 0.4em 0.3em;
-		border-top-left-radius: 0.8em;
-		border-top-right-radius: 0.8em;
+		// border-top-left-radius: 0.8em;
+		// border-top-right-radius: 0.8em;
+		border-radius: 0.8em;
 	}
 	&-nav {
 		line-height: 2.6em;

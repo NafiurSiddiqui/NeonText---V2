@@ -5,9 +5,9 @@ import UiText from './UiText';
 
 function UserInput() {
 	return (
-		<article class="ui-input">
-			<div class="ui-input-container">
-				<div class="ui-input-form-container">
+		<article className="ui-input">
+			<div className="ui-input-container">
+				<div className="ui-input-form-container">
 					<UiNav />
 					<UiText />
 					<UiFonts />

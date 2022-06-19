@@ -1,10 +1,10 @@
 import Body from './Body';
-import Header from './Header';
+import Header from '../Header';
 
 function Home() {
 	return (
 		<>
-			<Header />
+			<Header className="home-logo" />
 			<Body />
 		</>
 	);
