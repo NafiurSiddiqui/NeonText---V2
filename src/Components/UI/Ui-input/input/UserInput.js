@@ -1,4 +1,5 @@
 import UiNav from '../nav/UiNav';
+import PriceCards from '../priceCards/PriceCards';
 import UiColors from './UiColors';
 import UiFonts from './UiFonts';
 import UiText from './UiText';
@@ -14,6 +15,7 @@ function UserInput() {
 					<UiColors />
 				</div>
 			</div>
+			<PriceCards />
 		</article>
 	);
 }

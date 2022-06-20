@@ -5,7 +5,7 @@ import UserInput from './Ui-input/input/UserInput';
 function Ui() {
 	return (
 		<>
-			<Header />
+			<Header className="ui-logo" />
 			<main className="container">
 				<section className="ui-container">
 					{/* UiDisplay here */}
