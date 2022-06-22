@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import {} from '../../../HelperFunc';
 
-function UiText() {
+function UiText(props) {
 	//hooks
 	const [userText, setUserText] = useState('');
 
@@ -10,28 +9,35 @@ function UiText() {
 
 		//persist data in local storage
 		localStorage.setItem('userText', userText);
-		console.log(e.nativeEvent.inputType);
+
 		//any space should be omitted from calculating
 		if (e.nativeEvent.data === ' ') {
 			return;
 		}
-
+		//Displaying text and calculation
 		if (e.nativeEvent.inputType === 'deleteContentBackward') {
 			//recapture the userText here
 
-			let newUserText = setUserText(e.target.value);
-			//rerender the userText
-			if (newUserText.length !== 0) {
+			let delUserText = setUserText(e.target.value);
+
+			props.onDelUserText(delUserText);
+
+			//RERENDER THE USERTEXT
+			if (delUserText.length !== 0) {
 				// clearCanvas(ctx, canva);
-				// writeOnCanvas(ctx, newUserText);
+				// writeOnCanvas(ctx, delUserText);
 				// metrics = ctx.measureText(userText);
 				// debounceMeasurement();
 			}
 		} else {
+			//SIMPLY RENDER THE TEXT
 			// writeOnCanvas(ctx, userText);
 			// metrics = ctx.measureText(userText);
 			// debounceMeasurement();
 		}
+
+		props.onAddedUserText(userText);
+		console.log(userText);
 	};
 
 	// console.log(userText);
@@ -42,7 +48,7 @@ function UiText() {
 		if (localUserText === null) {
 			return;
 		} else if (localUserText.length > 1) {
-			console.log('TRUE');
+			// console.log('TRUE');
 			setUserText(localUserText);
 		}
 
@@ -53,12 +59,12 @@ function UiText() {
 
 	textLength = userText.length;
 
-	console.log(textLength);
+	// console.log(textLength);
 
 	//GUARD
 	if (textLength >= 20) {
 		alert(
-			`If you need more than 30 characters of text, Please contact us: 📞 +14-999-876-42`
+			`If you need more than 20 characters of text, Please contact us: 📞 +14-999-876-42`
 		);
 	}
 

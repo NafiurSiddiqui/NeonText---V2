@@ -3,6 +3,7 @@ import Canvas from './UiCanvas';
 import UserTextAndBars from './UserTextAndBars';
 
 function UiDisplay(props) {
+	//HERE
 	return (
 		<article className="ui-display">
 			<NeonSwitch />

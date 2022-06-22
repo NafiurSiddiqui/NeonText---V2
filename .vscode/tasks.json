@@ -6,17 +6,19 @@
 		{
 			"label": "status",
 			"type": "shell",
-			"command": "git status"
+			"command": "git status",
+			"problemMatcher": []
 		},
 		{
 			"label": "add -A",
 			"type": "shell",
-			"command": "git add -A"
+			"command": "git add -A",
+			"problemMatcher": []
 		},
 		{
 			"label": "commit",
 			"type": "shell",
-			"command": "git commit -m '$' "
+			"command": "git commit -m 'update' "
 		}
 	]
 }
