@@ -18,7 +18,20 @@
 		{
 			"label": "commit",
 			"type": "shell",
-			"command": "git commit -m 'update' "
+			"command": "git commit -m '$1' "
+		},
+		{
+			"label": "push/main",
+			"type": "shell",
+			"command": "git push origin main ",
+			"problemMatcher": []
+		},
+		{
+			"type": "npm",
+			"script": "start",
+			"problemMatcher": [],
+			"label": "npm: start",
+			"detail": "react-scripts start"
 		}
 	]
 }

@@ -4,11 +4,24 @@ function UiText(props) {
 	//hooks
 	const [userText, setUserText] = useState('');
 
-	const userTextChangeHandler = (e) => {
-		setUserText(e.target.value);
-
+	useEffect(() => {
 		//persist data in local storage
 		localStorage.setItem('userText', userText);
+		let localUserText = localStorage.getItem('userText');
+
+		if (localUserText === null) {
+			return;
+		} else if (localUserText.length > 1) {
+			// console.log('TRUE');
+			setUserText(localUserText);
+		}
+
+		props.onAddedUserText(userText);
+		// return () => {};
+	}, [userText, props]);
+
+	const userTextChangeHandler = (e) => {
+		setUserText(e.target.value);
 
 		//any space should be omitted from calculating
 		if (e.nativeEvent.data === ' ') {
@@ -35,25 +48,9 @@ function UiText(props) {
 			// metrics = ctx.measureText(userText);
 			// debounceMeasurement();
 		}
-
-		props.onAddedUserText(userText);
-		console.log(userText);
 	};
 
 	// console.log(userText);
-
-	useEffect(() => {
-		let localUserText = localStorage.getItem('userText');
-
-		if (localUserText === null) {
-			return;
-		} else if (localUserText.length > 1) {
-			// console.log('TRUE');
-			setUserText(localUserText);
-		}
-
-		// return () => {};
-	}, []);
 
 	let textLength = null;
 
