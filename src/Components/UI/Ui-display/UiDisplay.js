@@ -6,7 +6,7 @@ function UiDisplay(props) {
 	//HERE
 
 	const userTextHandler = () => {
-		// console.log(props.onAddedUserText);
+		// return
 	};
 
 	const calculationHandler = (e) => {

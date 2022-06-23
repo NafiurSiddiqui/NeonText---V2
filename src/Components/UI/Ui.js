@@ -9,14 +9,17 @@ function Ui() {
 	//newUserText?
 	//userText?
 
-	const caputeredUserText = (userText) => {
-		return userText;
+	// const [capturedUserText, setCapturedUserText] = useState('');
+
+	const capturedUserTextHandler = (userText) => {
+		// setCapturedUserText(userText);
+		console.log(userText);
 	};
 
-	const delUserText = (delText) => {
+	const delUserTextHandler = (delText) => {
 		return delText;
 	};
-
+	// console.log(capturedUserText);
 	return (
 		<>
 			<Header className="ui-logo" />
@@ -24,10 +27,10 @@ function Ui() {
 				<section className="ui-container">
 					{/* UiDisplay here */}
 					<UserInput
-						onDelUserText={delUserText}
-						onAddedUserText={caputeredUserText}
+						onDelUserText={delUserTextHandler}
+						onAddedUserText={capturedUserTextHandler}
 					/>
-					<UiDisplay onAddedUserText={caputeredUserText} />
+					<UiDisplay captureText={capturedUserTextHandler} />
 				</section>
 			</main>
 		</>
