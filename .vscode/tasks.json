@@ -18,7 +18,7 @@
 		{
 			"label": "commit",
 			"type": "shell",
-			"command": "git commit -m '$1' "
+			"command": "git commit -m 'progress' "
 		},
 		{
 			"label": "push/main",

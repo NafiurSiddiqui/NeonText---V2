@@ -3,42 +3,34 @@ import { useEffect, useState } from 'react';
 function UiText(props) {
 	//hooks
 	const [userText, setUserText] = useState('');
-
-	useEffect(() => {
-		//persist data in local storage
-		localStorage.setItem('userText', userText);
-		let localUserText = localStorage.getItem('userText');
-
-		if (localUserText === null) {
-			return;
-		} else if (localUserText.length > 1) {
-			// console.log('TRUE');
-			setUserText(localUserText);
-		}
-
-		props.onAddedUserText(userText);
-		// return () => {};
-	}, [userText, props]);
+	const [deletedText, setdeletedText] = useState('');
 
 	const userTextChangeHandler = (e) => {
+		if (e.nativeEvent.inputType === 'deleteContentBackward') {
+			setdeletedText(e.target.value);
+			// console.log(deletedText);
+		}
+
 		setUserText(e.target.value);
+		// console.log(userText);
 	};
+	// console.log(`DEL: ${deletedText}`);
+	// console.log(`UserText: ${userText}`);
 
-	// console.log(userText);
+	// let textLength = null;
 
-	let textLength = null;
+	// textLength = userText.length;
 
-	textLength = userText.length;
+	// // console.log(textLength);
 
-	// console.log(textLength);
-
-	//GUARD
-	if (textLength >= 20) {
-		alert(
-			`If you need more than 20 characters of text, Please contact us: 📞 +14-999-876-42`
-		);
-	}
-
+	// //GUARD
+	// if (textLength >= 20) {
+	// 	alert(
+	// 		`If you need more than 20 characters of text, Please contact us: 📞 +14-999-876-42`
+	// 	);
+	// }
+	props.onDelUserText(deletedText);
+	props.onAddedUserText(userText);
 	return (
 		<section className="ui-input-form text ui-active">
 			<input
