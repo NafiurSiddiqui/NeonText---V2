@@ -21,6 +21,10 @@ function UserInput(props) {
 		props.capturedUserText(userText);
 	};
 
+	const captureStorageTextHandler = (storageText) => {
+		props.capturedStorageText(storageText);
+	};
+
 	return (
 		<article className="ui-input">
 			<div className="ui-input-container">
@@ -29,6 +33,7 @@ function UserInput(props) {
 					<UiText
 						onDelUserText={onDelTextHandler}
 						onAddedUserText={onAddedUserTextHandler}
+						onAddedStorageText={captureStorageTextHandler}
 					/>
 					<UiFonts />
 					<UiColors />

@@ -1,13 +1,11 @@
-
 //DISPLAY
 export default function setDisplay(el, on = false) {
 	if (on === true) {
-		el.style.display = "flex";
+		el.style.display = 'flex';
 	} else {
-		el.style.display = "none";
+		el.style.display = 'none';
 	}
 }
-
 
 //FOR CANVAS
 export function clearCanvas(ctx, canva) {
@@ -24,14 +22,7 @@ export function writeOnCanvasWithFont(ctx, userText, font) {
 	ctx.fillText(userText, 0, 50);
 }
 
-
 //MEASUREMENT
-
-
-
-
-
-
 
 // export function debounceMeasurement() {
 // 	let timeout;
