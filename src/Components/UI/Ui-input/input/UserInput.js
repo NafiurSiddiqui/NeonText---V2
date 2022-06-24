@@ -7,17 +7,15 @@ import UiText from './UiText';
 function UserInput(props) {
 	//?do i need a state here
 
-	const onDelTextHandler = (delText) => {
+	const onDelTxtStateHandler = (delTxtState) => {
 		//capture the text here
-		// console.log(`DELETED TEXT: ${delText}`);
-		// props.onDelUserText(delText);
+
+		props.capturedDelTxtState(delTxtState);
+		// console.log(delTxtState);
 	};
 
 	const onAddedUserTextHandler = (userText) => {
 		//capture the text here
-		// console.log(`USER TEXT: ${userText}`);
-
-		// props.onAddedUserText(userText);
 		props.capturedUserText(userText);
 	};
 
@@ -31,9 +29,9 @@ function UserInput(props) {
 				<div className="ui-input-form-container">
 					<UiNav />
 					<UiText
-						onDelUserText={onDelTextHandler}
 						onAddedUserText={onAddedUserTextHandler}
 						onAddedStorageText={captureStorageTextHandler}
+						onDelTxtState={onDelTxtStateHandler}
 					/>
 					<UiFonts />
 					<UiColors />

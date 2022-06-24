@@ -6,10 +6,8 @@ function UiDisplay(props) {
 	//HERE
 
 	// console.log(props.capturedUserText);
-	const userTextHandler = () => {};
 
 	const calculationHandler = (e) => {
-		console.log(e);
 		//any space should be omitted from calculating
 		if (e.nativeEvent.data === ' ') {
 			return;
@@ -36,10 +34,9 @@ function UiDisplay(props) {
 	return (
 		<article className="ui-display">
 			<NeonSwitch />
-			{/* <!-- user text --> */}
 			<div className="ui-display-userText-container">
 				<UserTextAndBars capturedUserText={props.capturedUserText} />
-				<Canvas />
+				<Canvas capturedUserText={props.capturedUserText} />
 			</div>
 		</article>
 	);

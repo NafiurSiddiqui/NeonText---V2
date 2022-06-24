@@ -11,25 +11,26 @@ function Ui() {
 
 	const [captureUserText, setCaptureUserText] = useState('');
 	const [captureStorageText, setCaptureStorageText] = useState('');
-	// const capturedUserTextHandler = (userText) => {
-	// 	// setCapturedUserText(userText);
-	// 	console.log(userText);
-	// };
+	const [capturedDelTxtState, setCapturedDelTxtState] = useState();
 
-	// const delUserTextHandler = (delText) => {
-	// 	return delText;
-	// };
-	// console.log(capturedUserText);
-
-	const captureUserTextHandler = (props) => {
-		setCaptureUserText(props);
+	const delTxtStateHandler = (delTxtState) => {
+		setCapturedDelTxtState(delTxtState);
+		// console.log();
 	};
 
-	const captureStorageTextHandler = (props) => {
-		setCaptureStorageText(props);
+	// console.log(capturedDelTxtState);
+	// console.log(captureUserText);
+	// console.log(captureStorageText);
+
+	const captureUserTextHandler = (userText) => {
+		setCaptureUserText(userText);
+		// console.log(userText);
 	};
 
-	const delUserTextHandler = () => {};
+	const captureStorageTextHandler = (storageText) => {
+		setCaptureStorageText(storageText);
+		// console.log(storageText);
+	};
 
 	return (
 		<>
@@ -38,9 +39,9 @@ function Ui() {
 				<section className="ui-container">
 					{/* UiDisplay here */}
 					<UserInput
-						delUserText={delUserTextHandler}
 						capturedUserText={captureUserTextHandler}
 						capturedStorageText={captureStorageTextHandler}
+						capturedDelTxtState={delTxtStateHandler}
 					/>
 					<UiDisplay capturedUserText={captureUserText} />
 				</section>

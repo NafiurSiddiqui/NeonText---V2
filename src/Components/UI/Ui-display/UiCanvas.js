@@ -1,13 +1,27 @@
 import { useRef, useEffect } from 'react';
 
-function Canvas() {
+function Canvas(props) {
+	let userText = props.capturedUserText;
+
+	// console.log(userText);
+
 	const ctxRef = useRef();
+
 	useEffect(() => {
 		const ctx = ctxRef.current.getContext('2d');
-		// console.log(ctx);
 
-		//YOU need to clear the canvas here
-	}, []);
+		//WRITE and CLEAR canvas here
+
+		// if (delTextState === true) {
+		// 	//clear canvas and update it accordingly
+		// } else {
+		// 	//Write on canvas
+		// }
+
+		ctx.font = '4rem Tangerine';
+		ctx.fillStyle = 'White';
+		ctx.fillText(userText, 0, 50);
+	}, [userText]);
 
 	return <canvas id="displayText" ref={ctxRef}></canvas>;
 }

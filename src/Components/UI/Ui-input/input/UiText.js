@@ -4,12 +4,14 @@ function UiText(props) {
 	//hooks
 	const [userText, setUserText] = useState('');
 	const [deletedText, setdeletedText] = useState('');
+	const [delTxtState, setDelTxtState] = useState(false);
 	const [storageText, setStorageText] = useState('');
 
 	const userTextChangeHandler = (e) => {
 		if (e.nativeEvent.inputType === 'deleteContentBackward') {
 			setdeletedText(e.target.value);
-			// console.log(deletedText);
+			setDelTxtState(true);
+			// console.log(delTxtState);
 		}
 
 		setUserText(e.target.value);
@@ -39,9 +41,9 @@ function UiText(props) {
 			props.onAddedStorageText(userText);
 		}
 
-		props.onDelUserText(deletedText);
+		props.onDelTxtState(delTxtState);
 		props.onAddedUserText(userText);
-	}, [props, userText, deletedText, storageText]);
+	}, [props, userText, deletedText, storageText, setDelTxtState, delTxtState]);
 
 	return (
 		<section className="ui-input-form text ui-active">
