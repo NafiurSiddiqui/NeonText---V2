@@ -10,14 +10,15 @@ function UserInput(props) {
 	const onDelTextHandler = (delText) => {
 		//capture the text here
 		// console.log(`DELETED TEXT: ${delText}`);
-		props.onDelUserText(delText);
+		// props.onDelUserText(delText);
 	};
 
 	const onAddedUserTextHandler = (userText) => {
 		//capture the text here
 		// console.log(`USER TEXT: ${userText}`);
 
-		props.onAddedUserText(userText);
+		// props.onAddedUserText(userText);
+		props.capturedUserText(userText);
 	};
 
 	return (

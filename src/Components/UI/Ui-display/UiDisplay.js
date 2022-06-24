@@ -5,9 +5,8 @@ import UserTextAndBars from './UserTextAndBars';
 function UiDisplay(props) {
 	//HERE
 
-	const userTextHandler = () => {
-		// return
-	};
+	// console.log(props.capturedUserText);
+	const userTextHandler = () => {};
 
 	const calculationHandler = (e) => {
 		console.log(e);
@@ -39,7 +38,7 @@ function UiDisplay(props) {
 			<NeonSwitch />
 			{/* <!-- user text --> */}
 			<div className="ui-display-userText-container">
-				<UserTextAndBars />
+				<UserTextAndBars capturedUserText={props.capturedUserText} />
 				<Canvas />
 			</div>
 		</article>

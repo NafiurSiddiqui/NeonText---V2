@@ -1,9 +1,12 @@
 function UserTextAndBars(props) {
+	// console.log(props.capturedUserText);
 	return (
 		<>
 			<div className="ui-display-userText-wrapper">
 				<section className="ui-display-userText-and-bar">
-					<p className="ui-display-userText-text neonOn" id="userDisplay"></p>
+					<p className="ui-display-userText-text neonOn" id="userDisplay">
+						{props.capturedUserText}
+					</p>
 				</section>
 
 				<div className="measurementBar-height-wrapper">

@@ -38,7 +38,7 @@ article.ui-display {
 		padding-bottom: 0.3em;
 		letter-spacing: 2px;
 		word-wrap: anywhere;
-		font-family: "HerrVonMuellerhoff", cursive;
+		font-family: 'HerrVonMuellerhoff', cursive;
 		text-shadow: rgb(181, 181, 181) 0px 1px 0px, rgb(169, 169, 169) 0px 2px 0px,
 			rgb(148, 148, 148) 0px 3px 0px, rgb(125, 125, 125) 0px 4px 0px,
 			rgba(0, 0, 0, 0.23) 0px 0px 5px, rgba(0, 0, 0, 0.43) 0px 1px 3px,
@@ -50,7 +50,7 @@ article.ui-display {
 		width: 100%;
 		position: relative;
 		&::after {
-			content: "";
+			content: '';
 			width: 2px;
 			height: 15px;
 			background-color: white;
@@ -60,7 +60,7 @@ article.ui-display {
 			right: 0;
 		}
 		&::before {
-			content: "";
+			content: '';
 			width: 2px;
 			height: 15px;
 			background-color: white;
@@ -117,7 +117,7 @@ article.ui-display {
 
 canvas#displayText {
 	@include borderTest(orange);
-	display: none;
+	// display: none;
 }
 
 /* The switch - the box around the slider */
@@ -157,7 +157,7 @@ canvas#displayText {
 
 .slider:before {
 	position: absolute;
-	content: "";
+	content: '';
 	height: 28px;
 	width: 28px;
 	left: 1px;
