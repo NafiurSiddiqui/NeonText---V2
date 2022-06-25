@@ -12,15 +12,16 @@ function Ui() {
 	const [captureUserText, setCaptureUserText] = useState('');
 	const [captureStorageText, setCaptureStorageText] = useState('');
 	const [capturedDelTxtState, setCapturedDelTxtState] = useState();
+	const [txtState, setTxtState] = useState(false);
 
 	const delTxtStateHandler = (delTxtState) => {
 		setCapturedDelTxtState(delTxtState);
 		// console.log();
 	};
 
-	// console.log(capturedDelTxtState);
-	// console.log(captureUserText);
-	// console.log(captureStorageText);
+	const txtStateHandler = (txtState) => {
+		setTxtState(txtState);
+	};
 
 	const captureUserTextHandler = (userText) => {
 		setCaptureUserText(userText);
@@ -42,10 +43,12 @@ function Ui() {
 						capturedUserText={captureUserTextHandler}
 						capturedStorageText={captureStorageTextHandler}
 						capturedDelTxtState={delTxtStateHandler}
+						txtState={txtStateHandler}
 					/>
 					<UiDisplay
 						capturedUserText={captureUserText}
 						delTxtState={capturedDelTxtState}
+						txtState={txtState}
 					/>
 				</section>
 			</main>

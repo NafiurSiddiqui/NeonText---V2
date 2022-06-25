@@ -1,9 +1,34 @@
+import { useEffect, useState } from 'react';
+
 function UserTextAndBars(props) {
-	// console.log(props.capturedUserText);
+	const [showBars, setShowBars] = useState(false);
 
 	let letterHeight = props.letterHeight;
+	let txtState = props.txtState;
+	let userText = props.capturedUserText;
+	let txtLength = userText.length;
+	let width = `${txtLength * 2} CM`;
 
-	
+	useEffect(() => {
+		let timerHandler = setTimeout(() => {
+			console.log('Debouncing RAN!');
+
+			if (txtState === true) {
+				console.log('ok');
+				setShowBars(true);
+			}
+
+			if (txtLength === 0) {
+				setShowBars(false);
+			}
+		}, 300);
+
+		return () => {
+			console.log('Debouncing CLEARED!');
+			clearTimeout(timerHandler);
+		};
+	}, [txtState, txtLength]);
+
 	return (
 		<>
 			<div className="ui-display-userText-wrapper">
@@ -13,13 +38,20 @@ function UserTextAndBars(props) {
 					</p>
 				</section>
 
-				<div className="measurementBar-height-wrapper">
-					<span className="measurementBar-height"></span>
-					<span className="measurementBar-height-length"></span>
-				</div>
+				{showBars && (
+					<div className="measurementBar-height-wrapper">
+						<span
+							className="measurementBar-height"
+							style={{ height: `${letterHeight}px` }}
+						></span>
+						<span className="measurementBar-height-length">
+							{`${Math.floor(letterHeight)}Cm`}
+						</span>
+					</div>
+				)}
 			</div>
 
-			<span className="measurementBar-width-length"></span>
+			<span className="measurementBar-width-length">{showBars && width}</span>
 		</>
 	);
 }

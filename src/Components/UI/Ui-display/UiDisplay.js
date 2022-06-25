@@ -21,6 +21,7 @@ function UiDisplay(props) {
 				<UserTextAndBars
 					capturedUserText={props.capturedUserText}
 					letterHeight={capturedLetterHeight}
+					txtState={props.txtState}
 				/>
 				<Canvas
 					capturedUserText={props.capturedUserText}

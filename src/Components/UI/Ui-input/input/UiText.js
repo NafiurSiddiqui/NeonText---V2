@@ -3,8 +3,10 @@ import { useEffect, useState } from 'react';
 function UiText(props) {
 	//hooks
 	const [userText, setUserText] = useState('');
+
 	const [deletedText, setdeletedText] = useState('');
 	const [delTxtState, setDelTxtState] = useState(false);
+
 	const [storageText, setStorageText] = useState('');
 
 	const userTextChangeHandler = (e) => {
@@ -13,7 +15,7 @@ function UiText(props) {
 			setDelTxtState(true);
 			// console.log(delTxtState);
 		}
-
+		props.txtState(true);
 		setUserText(e.target.value);
 		// console.log(userText);
 	};
@@ -28,6 +30,14 @@ function UiText(props) {
 			return false;
 		}
 	}
+
+	useEffect(() => {
+		if (userText.length >= 20) {
+			alert(
+				`If you need more than 20 characters of text, Please contact us: 📞 +14-999-876-42`
+			);
+		}
+	}, [userText]);
 
 	useEffect(() => {
 		if (lsTest() !== false) {

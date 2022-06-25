@@ -32,6 +32,7 @@ function UserInput(props) {
 						onAddedUserText={onAddedUserTextHandler}
 						onAddedStorageText={captureStorageTextHandler}
 						onDelTxtState={onDelTxtStateHandler}
+						txtState={props.txtState}
 					/>
 					<UiFonts />
 					<UiColors />
