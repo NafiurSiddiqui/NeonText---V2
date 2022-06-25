@@ -1,42 +1,32 @@
+import { useState } from 'react';
 import NeonSwitch from './NeonSwitch';
 import Canvas from './UiCanvas';
 import UserTextAndBars from './UserTextAndBars';
 
 function UiDisplay(props) {
 	//HERE
-
+	const [capturedLetterHeight, setCapturedLetterHeight] = useState();
 	// console.log(props.capturedUserText);
+	// console.log(props.delTxtState);
 
-	const calculationHandler = (e) => {
-		//any space should be omitted from calculating
-		if (e.nativeEvent.data === ' ') {
-			return;
-		}
-		//Displaying text and calculation
-		// if (e.nativeEvent.inputType === 'deleteContentBackward') {
-		// 	//recapture the userText here
-		// 	// let delUserText = setNewUserText(e.target.value);
-		// 	//RERENDER THE USERTEXT
-		// 	if (delUserText.length !== 0) {
-		// 		// clearCanvas(ctx, canva);
-		// 		// writeOnCanvas(ctx, delUserText);
-		// 		// metrics = ctx.measureText(userText);
-		// 		// debounceMeasurement();
-		// 	}
-		// } else {
-		// 	//SIMPLY RENDER THE TEXT
-		// 	// writeOnCanvas(ctx, userText);
-		// 	// metrics = ctx.measureText(userText);
-		// 	// debounceMeasurement();
-		// }
+	const letterHeightHandler = (letterHeight) => {
+		// console.log(letterHeight);
+		setCapturedLetterHeight(letterHeight);
 	};
 
 	return (
 		<article className="ui-display">
 			<NeonSwitch />
 			<div className="ui-display-userText-container">
-				<UserTextAndBars capturedUserText={props.capturedUserText} />
-				<Canvas capturedUserText={props.capturedUserText} />
+				<UserTextAndBars
+					capturedUserText={props.capturedUserText}
+					letterHeight={capturedLetterHeight}
+				/>
+				<Canvas
+					capturedUserText={props.capturedUserText}
+					delTxtState={props.delTxtState}
+					letterHeight={letterHeightHandler}
+				/>
 			</div>
 		</article>
 	);

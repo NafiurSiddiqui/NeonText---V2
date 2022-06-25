@@ -1,5 +1,9 @@
 function UserTextAndBars(props) {
 	// console.log(props.capturedUserText);
+
+	let letterHeight = props.letterHeight;
+
+	
 	return (
 		<>
 			<div className="ui-display-userText-wrapper">

@@ -8,8 +8,8 @@ export default function setDisplay(el, on = false) {
 }
 
 //FOR CANVAS
-export function clearCanvas(ctx, canva) {
-	ctx.clearRect(0, 0, canva.width, canva.height);
+export function clearCanvas(ctx, canvasWidth, canvasHeight) {
+	ctx.clearRect(0, 0, canvasWidth, canvasHeight);
 }
 
 export function writeOnCanvas(ctx, userText) {
@@ -24,7 +24,7 @@ export function writeOnCanvasWithFont(ctx, userText, font) {
 
 //MEASUREMENT
 
-// export function debounceMeasurement() {
+// export function debounceMeasurement(showBars,metrics) {
 // 	let timeout;
 // 	showBars(false);
 // 	//cleartimeout
@@ -33,4 +33,38 @@ export function writeOnCanvasWithFont(ctx, userText, font) {
 // 	timeout = setTimeout(() => {
 // 		measureBars(metrics, textLength, barWidthSize, barHeight, barHeightSize);
 // 	}, 3000);
+// }
+
+// export function measureBars(
+// 	metrics,
+// 	textLength,
+// 	barWidthSize,
+// 	barHeight,
+// 	barHeightSize,
+// 	largeFont = false
+// ) {
+// 	//height
+// 	let height =
+// 		Math.floor(metrics.actualBoundingBoxAscent) +
+// 		Math.floor(metrics.actualBoundingBoxDescent);
+
+// 	//measurement bars
+// 	let widthSize = (barWidthSize.textContent = `${textLength * 2} CM`);
+// 	barHeight.style.height = `${height}px`;
+
+// 	//font Amsterdam or RasterSlice?
+// 	let heightSize;
+// 	if (largeFont === true) {
+// 		return (heightSize = barHeightSize.textContent =
+// 			`${Math.floor(height / 2)}Cm`);
+// 	} else {
+// 		heightSize = barHeightSize.textContent = `${Math.floor(height)}Cm`;
+// 	}
+// 	showBars(true);
+// 	//PRICING
+// 	let widthPrice = parseInt(widthSize);
+// 	let heightPrice = parseInt(heightSize);
+// 	calculatePricing(textLength);
+// 	calculateDimension(widthPrice, heightPrice);
+// 	return [widthSize, heightSize];
 // }

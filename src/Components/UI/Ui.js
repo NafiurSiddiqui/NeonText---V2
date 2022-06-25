@@ -43,7 +43,10 @@ function Ui() {
 						capturedStorageText={captureStorageTextHandler}
 						capturedDelTxtState={delTxtStateHandler}
 					/>
-					<UiDisplay capturedUserText={captureUserText} />
+					<UiDisplay
+						capturedUserText={captureUserText}
+						delTxtState={capturedDelTxtState}
+					/>
 				</section>
 			</main>
 		</>
