@@ -10,7 +10,7 @@ function Ui() {
 	//userText?
 
 	const [captureUserText, setCaptureUserText] = useState('');
-	const [captureStorageText, setCaptureStorageText] = useState('');
+	const [capturedStorageText, setCapturedStorageText] = useState('');
 	const [capturedDelTxtState, setCapturedDelTxtState] = useState();
 	const [txtState, setTxtState] = useState(false);
 
@@ -29,7 +29,7 @@ function Ui() {
 	};
 
 	const captureStorageTextHandler = (storageText) => {
-		setCaptureStorageText(storageText);
+		setCapturedStorageText(storageText);
 		// console.log(storageText);
 	};
 
@@ -49,6 +49,7 @@ function Ui() {
 						capturedUserText={captureUserText}
 						delTxtState={capturedDelTxtState}
 						txtState={txtState}
+						storageText={capturedStorageText}
 					/>
 				</section>
 			</main>

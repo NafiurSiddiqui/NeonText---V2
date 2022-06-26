@@ -1,12 +1,18 @@
-function UiFonts() {
+import ImagesBtn from '../../../Images';
+
+function UiFonts(props) {
 	return (
-		<section className="ui-input-form fontFamily">
+		<section
+			className={`ui-input-form fontFamily  ${
+				props.navState ? 'ui-active' : ''
+			}`}
+		>
 			<h3 className="ui-input-form-heading">CHOOSE FONT</h3>
 			<ul className="ui-input-fontFamily-lists">
 				<li className="ui-input-fontFamily-list Amanda">
 					<img
 						className="ui-input-fontFamily-list__image"
-						src="./Assets/Amanda.svg"
+						src={ImagesBtn.amanda}
 						alt="Font family Amanda"
 						id="Amanda"
 					/>
@@ -14,7 +20,7 @@ function UiFonts() {
 				<li className="ui-input-fontFamily-list Allura">
 					<img
 						className="ui-input-fontFamily-list__image"
-						src="./Assets/Allura.svg"
+						src={ImagesBtn.allura}
 						alt="Font family Allura"
 						id="Allura"
 					/>
@@ -22,7 +28,7 @@ function UiFonts() {
 				<li className="ui-input-fontFamily-list Tangerine">
 					<img
 						className="ui-input-fontFamily-list__image"
-						src="./Assets/Tangerine.svg"
+						src={ImagesBtn.tangerine}
 						alt="Font Family Tangerine"
 						id="Tangerine"
 					/>
@@ -30,7 +36,7 @@ function UiFonts() {
 				<li className="ui-input-fontFamily-list Amsterdam">
 					<img
 						className="ui-input-fontFamily-list__image"
-						src="./Assets/Amsterdam.svg"
+						src={ImagesBtn.amsterdam}
 						alt="Font Family"
 						id="Amsterdam"
 					/>
@@ -38,7 +44,7 @@ function UiFonts() {
 				<li className="ui-input-fontFamily-list RasterSlice">
 					<img
 						className="ui-input-fontFamily-list__image"
-						src="./Assets/Raster.svg"
+						src={ImagesBtn.raster}
 						alt="Font family Raster"
 						id="RasterSlice"
 					/>
@@ -46,7 +52,7 @@ function UiFonts() {
 				<li className="ui-input-fontFamily-list HerrVonMuellerhoff">
 					<img
 						className="ui-input-fontFamily-list__image"
-						src="./Assets/HerVon M.svg"
+						src={ImagesBtn.herrVonMuellerhoff}
 						alt="Font family Herr von Muellerhoff"
 						id="HerrVonMuellerhoff"
 					/>
@@ -54,7 +60,7 @@ function UiFonts() {
 				<li className="ui-input-fontFamily-list Cookie">
 					<img
 						className="ui-input-fontFamily-list__image"
-						src="./Assets/Cookie.svg"
+						src={ImagesBtn.cookie}
 						alt="Font family Cookie"
 						id="Cookie"
 					/>
@@ -62,7 +68,7 @@ function UiFonts() {
 				<li className="ui-input-fontFamily-list Orbitron">
 					<img
 						className="ui-input-fontFamily-list__image"
-						src="./Assets/Orbitron.svg"
+						src={ImagesBtn.orbitron}
 						alt="Font family Orbitron"
 						id="Orbitron"
 					/>

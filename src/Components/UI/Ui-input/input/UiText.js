@@ -48,15 +48,17 @@ function UiText(props) {
 			setStorageText(localStorage.getItem('userText'));
 
 			//make storage available
-			props.onAddedStorageText(userText);
+			props.onAddedStorageText(storageText);
 		}
 
 		props.onDelTxtState(delTxtState);
 		props.onAddedUserText(userText);
-	}, [props, userText, deletedText, storageText, setDelTxtState, delTxtState]);
+	}, [props, userText, deletedText, storageText, delTxtState]);
 
 	return (
-		<section className="ui-input-form text ui-active">
+		<section
+			className={`ui-input-form text  ${props.navState ? 'ui-active' : ''}`}
+		>
 			<input
 				type="text"
 				name="userText"

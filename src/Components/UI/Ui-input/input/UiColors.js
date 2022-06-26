@@ -1,6 +1,8 @@
-function UiColors() {
+function UiColors(props) {
 	return (
-		<section className="ui-input-form color">
+		<section
+			className={`ui-input-form color  ${props.navState ? 'ui-active' : ''}`}
+		>
 			<h3 className="ui-input-form-heading">CHOOSE COLOUR</h3>
 			<ul className="ui-input-color-lists">
 				<li

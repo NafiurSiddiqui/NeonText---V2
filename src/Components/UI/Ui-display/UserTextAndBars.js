@@ -6,15 +6,16 @@ function UserTextAndBars(props) {
 	let letterHeight = props.letterHeight;
 	let txtState = props.txtState;
 	let userText = props.capturedUserText;
+	let storageText = props.storageText;
 	let txtLength = userText.length;
 	let width = `${txtLength * 2} CM`;
 
 	useEffect(() => {
 		let timerHandler = setTimeout(() => {
-			console.log('Debouncing RAN!');
+			// console.log('Debouncing RAN!');
 
 			if (txtState === true) {
-				console.log('ok');
+				// console.log('ok');
 				setShowBars(true);
 			}
 
@@ -24,7 +25,7 @@ function UserTextAndBars(props) {
 		}, 300);
 
 		return () => {
-			console.log('Debouncing CLEARED!');
+			// console.log('Debouncing CLEARED!');
 			clearTimeout(timerHandler);
 		};
 	}, [txtState, txtLength]);
@@ -34,7 +35,7 @@ function UserTextAndBars(props) {
 			<div className="ui-display-userText-wrapper">
 				<section className="ui-display-userText-and-bar">
 					<p className="ui-display-userText-text neonOn" id="userDisplay">
-						{props.capturedUserText}
+						{storageText.length > 0 ? storageText : userText}
 					</p>
 				</section>
 
