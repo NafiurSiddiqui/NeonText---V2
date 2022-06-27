@@ -6,13 +6,13 @@ import UserTextAndBars from './UserTextAndBars';
 function UiDisplay(props) {
 	//HERE
 	const [capturedLetterHeight, setCapturedLetterHeight] = useState();
-	// console.log(props.capturedUserText);
-	// console.log(props.delTxtState);
 
 	const letterHeightHandler = (letterHeight) => {
 		// console.log(letterHeight);
 		setCapturedLetterHeight(letterHeight);
 	};
+
+	// console.log(props.capturedStorageText);
 
 	return (
 		<article className="ui-display">
@@ -22,7 +22,8 @@ function UiDisplay(props) {
 					capturedUserText={props.capturedUserText}
 					letterHeight={capturedLetterHeight}
 					txtState={props.txtState}
-					storageText={props.storageText}
+					capturedStorageText={props.capturedStorageText}
+					storageStatus={props.storageStatus}
 				/>
 				<Canvas
 					capturedUserText={props.capturedUserText}

@@ -2,34 +2,29 @@ import { useEffect, useState } from 'react';
 
 function UiText(props) {
 	//hooks
-	const [userText, setUserText] = useState('');
 
+	const [userText, setUserText] = useState('');
 	const [deletedText, setdeletedText] = useState('');
 	const [delTxtState, setDelTxtState] = useState(false);
 
-	const [storageText, setStorageText] = useState('');
+	// const [storageText, setStorageText] = useState(
+	// 	props.txtState === true
+	// 		? localStorage.setItem('userText', userText)
+	// 		: 'Your Text'
+	// );
+	// userText.length > 1
+	// ? localStorage.setItem('storeText', userText)
+	// : 'Your Text'
+	const [storeText, setStoreText] = useState();
 
 	const userTextChangeHandler = (e) => {
 		if (e.nativeEvent.inputType === 'deleteContentBackward') {
 			setdeletedText(e.target.value);
 			setDelTxtState(true);
-			// console.log(delTxtState);
 		}
 		props.txtState(true);
 		setUserText(e.target.value);
-		// console.log(userText);
 	};
-
-	function lsTest() {
-		let test = 'test';
-		try {
-			localStorage.setItem(test, test);
-			localStorage.removeItem(test);
-			return true;
-		} catch (e) {
-			return false;
-		}
-	}
 
 	useEffect(() => {
 		if (userText.length >= 20) {
@@ -40,20 +35,27 @@ function UiText(props) {
 	}, [userText]);
 
 	useEffect(() => {
-		if (lsTest() !== false) {
-			//persist data in local storage
-			localStorage.setItem('userText', userText);
+		const test = 'test';
+		try {
+			localStorage.setItem(test, test);
+			localStorage.removeItem(test);
+			props.setStorageStatus(true);
+			if (userText.length > 1) {
+				setStoreText(localStorage.setItem('storeText', userText));
+			}
 
-			//get the item from storage
-			setStorageText(localStorage.getItem('userText'));
-
-			//make storage available
-			props.onAddedStorageText(storageText);
+			setStoreText(localStorage.getItem('storeText'));
+			console.log(`Store Text: ${storeText}`);
+			props.capturedStorageText(storeText);
+			// return true;
+		} catch (e) {
+			props.setStorageStatus(false);
+			// return false;
 		}
 
 		props.onDelTxtState(delTxtState);
 		props.onAddedUserText(userText);
-	}, [props, userText, deletedText, storageText, delTxtState]);
+	}, [props, userText, deletedText, delTxtState, storeText]);
 
 	return (
 		<section
