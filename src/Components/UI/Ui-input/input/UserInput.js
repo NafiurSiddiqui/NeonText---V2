@@ -65,7 +65,10 @@ function UserInput(props) {
 						setStorageStatus={props.setStorageStatus}
 						storageStatus={props.storageStatus}
 					/>
-					<UiFonts navState={navState.fontState} />
+					<UiFonts
+						navState={navState.fontState}
+						getFontFamily={props.getFontFamily}
+					/>
 					<UiColors navState={navState.colorState} />
 				</div>
 			</div>

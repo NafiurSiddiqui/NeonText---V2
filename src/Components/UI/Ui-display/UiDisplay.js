@@ -22,6 +22,7 @@ function UiDisplay(props) {
 					txtState={props.txtState}
 					capturedStorageText={props.capturedStorageText}
 					storageStatus={props.storageStatus}
+					setFontFamily={props.setFontFamily}
 				/>
 				<Canvas
 					capturedUserText={props.capturedUserText}

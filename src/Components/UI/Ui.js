@@ -5,16 +5,14 @@ import UiDisplay from './Ui-display/UiDisplay';
 import UserInput from './Ui-input/input/UserInput';
 
 function Ui() {
-	//HERE looks like a good place to pass around data
-	//newUserText?
-	//userText?
-
+	//UiText state
 	const [captureUserText, setCaptureUserText] = useState('');
 	const [capturedStorageText, setCapturedStorageText] = useState('');
 	const [storageStatus, setStorageStatus] = useState();
-
 	const [capturedDelTxtState, setCapturedDelTxtState] = useState();
 	const [txtState, setTxtState] = useState(false);
+	//UiFont state
+	const [fontFamily, setFontFamily] = useState();
 
 	const delTxtStateHandler = (delTxtState) => {
 		setCapturedDelTxtState(delTxtState);
@@ -51,6 +49,7 @@ function Ui() {
 						txtState={txtStateHandler}
 						setStorageStatus={storageStatusHandler}
 						storageStatus={storageStatus}
+						getFontFamily={setFontFamily}
 					/>
 					<UiDisplay
 						capturedUserText={captureUserText}
@@ -58,6 +57,7 @@ function Ui() {
 						txtState={txtState}
 						capturedStorageText={capturedStorageText}
 						storageStatus={storageStatus}
+						setFontFamily={fontFamily}
 					/>
 				</section>
 			</main>

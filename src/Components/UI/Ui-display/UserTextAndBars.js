@@ -3,20 +3,21 @@ import { useEffect, useState } from 'react';
 function UserTextAndBars(props) {
 	const [showBars, setShowBars] = useState(false);
 	const [width, setWidth] = useState();
-
 	const [displayText, setDisplayText] = useState('Your Text');
+	//STYLING STATE
+	const [largeFont, setLargeFont] = useState();
+
+	//props var
 	let letterHeight = props.letterHeight;
 	let txtState = props.txtState;
 	let userText = props.capturedUserText;
 	// let storageText = props.storageText;
 	let storeText = props.capturedStorageText;
 	const storageStatus = props.storageStatus;
+
 	let txtLength = userText.length;
-
-	// `${txtLength * 2} CM`;
-
-	// console.log(storageStatus);
-	console.log(showBars);
+	// console.log(props.setFontFamily);
+	// console.log(showBars);
 	useEffect(() => {
 		let timerHandler = setTimeout(() => {
 			if (txtState === false && storeText === null) {
@@ -29,7 +30,6 @@ function UserTextAndBars(props) {
 				setShowBars(true);
 				setWidth(`${storeText.length * 2}CM`);
 				setDisplayText(storeText);
-				// console.log(storeText);
 			}
 
 			if (userText.length > 0) {
@@ -57,6 +57,24 @@ function UserTextAndBars(props) {
 			clearTimeout(timerHandler);
 		};
 	}, [txtState, txtLength, storeText, userText, storageStatus]);
+	// NOTE : if largeFont then, setthe fontSize
+
+	useEffect(() => {
+		if (
+			props.setFontFamily === 'RasterSlice' ||
+			props.setFontFamily === 'Amsterdam' ||
+			props.setFontFamily === 'Orbitron'
+		) {
+			setLargeFont(true);
+			// console.log('TRUE');
+		} else {
+			setLargeFont(false);
+		}
+	}, [props]);
+	// if (props.setFontFamily === 'RasterSlice') {
+	// 	setLargeFont(true);
+	// 	console.log('TRUE');
+	// }
 
 	return (
 		<>
@@ -66,7 +84,13 @@ function UserTextAndBars(props) {
 						showBars ? 'widthActive ' : ''
 					}`}
 				>
-					<p className="ui-display-userText-text neonOn" id="userDisplay">
+					<p
+						className="ui-display-userText-text neonOn"
+						style={{
+							fontFamily: props.setFontFamily,
+							fontSize: largeFont ? '40px' : '70px',
+						}}
+					>
 						{storageStatus && displayText}
 						{!storageStatus && userText}
 					</p>
