@@ -3,6 +3,8 @@ import { clearCanvas } from '../../HelperFunc';
 
 function Canvas(props) {
 	let userText = props.capturedUserText;
+	const storageText = props.capturedStorageText;
+	const storageStatus = props.storageStatus;
 
 	let delTxtState = props.delTxtState;
 
@@ -12,7 +14,6 @@ function Canvas(props) {
 
 	useEffect(() => {
 		const ctx = ctxRef.current.getContext('2d');
-
 		const metrics = ctx.measureText(userText);
 
 		props.letterHeight(
@@ -25,22 +26,25 @@ function Canvas(props) {
 		//WRITE and CLEAR canvas here
 
 		if (delTxtState === true) {
-			//clear canvas and update it accordingly
-			// console.log(`del: ${userText.length}`);
-			// if (userText.length !== 0) {
-			// }
 			clearCanvas(ctx, canvasWidth, canvasHeight);
-		} else {
-			//Write on canvas
-			// console.log(`Non-del: ${userText.length}`);
 		}
 
 		ctx.font = '4rem Tangerine';
 		ctx.fillStyle = 'White';
-		ctx.fillText(userText, 0, 50);
-	}, [userText, delTxtState, props]);
 
-	// props.letterHeight(letterHeight);
+		if (storageText !== null) {
+			clearCanvas(ctx, canvasWidth, canvasHeight);
+			ctx.fillText(storageText, 0, 50);
+		}
+
+		if (storageStatus === false) {
+			ctx.fillText(userText, 0, 50);
+		}
+
+		if (userText.length === 0) {
+			clearCanvas(ctx, canvasWidth, canvasHeight);
+		}
+	}, [userText, delTxtState, props, storageText, storageStatus]);
 
 	return <canvas id="displayText" ref={ctxRef}></canvas>;
 }

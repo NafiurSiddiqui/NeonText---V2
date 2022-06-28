@@ -12,8 +12,6 @@ function UiDisplay(props) {
 		setCapturedLetterHeight(letterHeight);
 	};
 
-	// console.log(props.capturedStorageText);
-
 	return (
 		<article className="ui-display">
 			<NeonSwitch />
@@ -29,6 +27,8 @@ function UiDisplay(props) {
 					capturedUserText={props.capturedUserText}
 					delTxtState={props.delTxtState}
 					letterHeight={letterHeightHandler}
+					capturedStorageText={props.capturedStorageText}
+					storageStatus={props.storageStatus}
 				/>
 			</div>
 		</article>

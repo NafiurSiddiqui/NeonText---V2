@@ -7,14 +7,6 @@ function UiText(props) {
 	const [deletedText, setdeletedText] = useState('');
 	const [delTxtState, setDelTxtState] = useState(false);
 
-	// const [storageText, setStorageText] = useState(
-	// 	props.txtState === true
-	// 		? localStorage.setItem('userText', userText)
-	// 		: 'Your Text'
-	// );
-	// userText.length > 1
-	// ? localStorage.setItem('storeText', userText)
-	// : 'Your Text'
 	const [storeText, setStoreText] = useState();
 
 	const userTextChangeHandler = (e) => {
@@ -37,17 +29,18 @@ function UiText(props) {
 	useEffect(() => {
 		const test = 'test';
 		try {
+			//storage availability
 			localStorage.setItem(test, test);
 			localStorage.removeItem(test);
 			props.setStorageStatus(true);
-			if (userText.length > 1) {
+
+			if (userText.length > 0) {
 				setStoreText(localStorage.setItem('storeText', userText));
 			}
 
 			setStoreText(localStorage.getItem('storeText'));
-			console.log(`Store Text: ${storeText}`);
+
 			props.capturedStorageText(storeText);
-			// return true;
 		} catch (e) {
 			props.setStorageStatus(false);
 			// return false;

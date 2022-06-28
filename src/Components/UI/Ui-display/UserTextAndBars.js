@@ -2,26 +2,53 @@ import { useEffect, useState } from 'react';
 
 function UserTextAndBars(props) {
 	const [showBars, setShowBars] = useState(false);
+	const [width, setWidth] = useState();
 
+	const [displayText, setDisplayText] = useState('Your Text');
 	let letterHeight = props.letterHeight;
 	let txtState = props.txtState;
 	let userText = props.capturedUserText;
 	// let storageText = props.storageText;
 	let storeText = props.capturedStorageText;
+	const storageStatus = props.storageStatus;
 	let txtLength = userText.length;
-	let width = `${txtLength * 2} CM`;
 
+	// `${txtLength * 2} CM`;
+
+	// console.log(storageStatus);
+	console.log(showBars);
 	useEffect(() => {
 		let timerHandler = setTimeout(() => {
-			// console.log('Debouncing RAN!');
-
-			if (txtState === true) {
-				// console.log('ok');
-				setShowBars(true);
+			if (txtState === false && storeText === null) {
+				setShowBars(false);
+				setWidth('');
+				setDisplayText('Your Text');
 			}
 
-			if (txtLength === 0) {
+			if (txtState === true || storeText !== null) {
+				setShowBars(true);
+				setWidth(`${storeText.length * 2}CM`);
+				setDisplayText(storeText);
+				// console.log(storeText);
+			}
+
+			if (userText.length > 0) {
+				setDisplayText(userText);
+			}
+
+			// if (userText.length === 0 && storeText === null) {
+			// 	setDisplayText('Your Text');
+			// 	setWidth(``);
+			// }
+
+			if (userText.length === 0) {
+				setDisplayText('Your Text');
+				setWidth(``);
 				setShowBars(false);
+			}
+
+			if (storageStatus === false && txtState === true) {
+				setWidth(`${txtLength * 2} CM`);
 			}
 		}, 300);
 
@@ -29,36 +56,19 @@ function UserTextAndBars(props) {
 			// console.log('Debouncing CLEARED!');
 			clearTimeout(timerHandler);
 		};
-	}, [txtState, txtLength]);
-
-	let displayText;
-
-	// displayText = storageText.length > 0 ? storageText : 'Your Text';
-	displayText = storeText !== null ? storeText : 'Your Text';
-
-	// console.log(props.storageStatus);
-
-	if (userText.length >= 1) {
-		if (props.storageStatus !== false) {
-			localStorage.removeItem('storeText');
-		}
-		displayText = userText;
-	}
-
-	// if (props.storageStatus === false) {
-	// }
-
-	if (storeText !== null) {
-		displayText = storeText;
-	}
+	}, [txtState, txtLength, storeText, userText, storageStatus]);
 
 	return (
 		<>
 			<div className="ui-display-userText-wrapper">
-				<section className="ui-display-userText-and-bar">
+				<section
+					className={`ui-display-userText-and-bar ${
+						showBars ? 'widthActive ' : ''
+					}`}
+				>
 					<p className="ui-display-userText-text neonOn" id="userDisplay">
-						{props.storageStatus && displayText}
-						{!props.storageStatus && userText}
+						{storageStatus && displayText}
+						{!storageStatus && userText}
 					</p>
 				</section>
 
