@@ -68,6 +68,7 @@ function UserInput(props) {
 					<UiFonts
 						navState={navState.fontState}
 						getFontFamily={props.getFontFamily}
+						getFontState={props.getFontState}
 					/>
 					<UiColors navState={navState.colorState} />
 				</div>

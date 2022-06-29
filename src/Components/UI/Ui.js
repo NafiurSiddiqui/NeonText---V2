@@ -13,6 +13,7 @@ function Ui() {
 	const [txtState, setTxtState] = useState(false);
 	//UiFont state
 	const [fontFamily, setFontFamily] = useState();
+	const [fontState, getFontState] = useState(false);
 
 	const delTxtStateHandler = (delTxtState) => {
 		setCapturedDelTxtState(delTxtState);
@@ -41,7 +42,6 @@ function Ui() {
 			<Header className="ui-logo" />
 			<main className="container">
 				<section className="ui-container">
-					{/* UiDisplay here */}
 					<UserInput
 						capturedUserText={captureUserTextHandler}
 						capturedStorageText={captureStorageTextHandler}
@@ -50,6 +50,7 @@ function Ui() {
 						setStorageStatus={storageStatusHandler}
 						storageStatus={storageStatus}
 						getFontFamily={setFontFamily}
+						getFontState={getFontState}
 					/>
 					<UiDisplay
 						capturedUserText={captureUserText}
@@ -58,6 +59,7 @@ function Ui() {
 						capturedStorageText={capturedStorageText}
 						storageStatus={storageStatus}
 						setFontFamily={fontFamily}
+						fontState={fontState}
 					/>
 				</section>
 			</main>

@@ -1,30 +1,38 @@
+import { useRef, useState } from 'react';
 import ImagesBtn from '../../../Images';
 
 function UiFonts(props) {
+	const [btnActive, setbtnActive] = useState();
+
+	const btnValue = useRef();
+
 	const fontHandler = (e) => {
 		//if--click is list
 		if (e.target.localName === 'li') {
 			//get the fontName
-			// e.target.classList[1]
-			console.log(e.target.classList[1]);
-			props.getFontFamily(e.target.classList[1]);
-			//access display and set the fontFamily
+			const targetClass = e.target.classList[1];
+			props.getFontFamily(targetClass);
+			props.getFontState(true);
+			// setbtnActive(true);
+
+			console.log(targetClass);
+
+			//if - current Id matches with the listOfFonts
+
+			// console.log(what[0].btnActive);
+
+			//-----set that  status to true
+			//---- that status is True && add btnActive to that id
 		}
 
 		if (e.target.localName === 'img') {
-			// console.log(e.target.id);
 			props.getFontFamily(e.target.id);
+			props.getFontState(true);
+			setbtnActive(true);
 		}
-
-		//if--image
-		//---get the id
-		// console.log(e.target.id);
 	};
-	//get the font value
-
-	//set the font to the diplay.font-family
-
-	//set the button to active
+	// console.log(btnValue);
+	// const btnActivation = btnActive ? 'btn-active' : '';
 
 	return (
 		<section
@@ -34,7 +42,11 @@ function UiFonts(props) {
 		>
 			<h3 className="ui-input-form-heading">CHOOSE FONT</h3>
 			<ul className="ui-input-fontFamily-lists">
-				<li className="ui-input-fontFamily-list Amanda" onClick={fontHandler}>
+				<li
+					className={`ui-input-fontFamily-list Amanda  `}
+					ref={btnValue}
+					onClick={fontHandler}
+				>
 					<img
 						className="ui-input-fontFamily-list__image"
 						src={ImagesBtn.amanda}
@@ -43,7 +55,7 @@ function UiFonts(props) {
 						onClick={fontHandler}
 					/>
 				</li>
-				<li className="ui-input-fontFamily-list Allura" onClick={fontHandler}>
+				<li className={`ui-input-fontFamily-list Allura`} onClick={fontHandler}>
 					<img
 						className="ui-input-fontFamily-list__image"
 						src={ImagesBtn.allura}

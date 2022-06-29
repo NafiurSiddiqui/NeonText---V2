@@ -30,6 +30,8 @@ function UiDisplay(props) {
 					letterHeight={letterHeightHandler}
 					capturedStorageText={props.capturedStorageText}
 					storageStatus={props.storageStatus}
+					setFontFamily={props.setFontFamily}
+					fontState={props.fontState}
 				/>
 			</div>
 		</article>

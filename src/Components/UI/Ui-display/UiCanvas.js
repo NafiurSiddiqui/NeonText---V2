@@ -5,12 +5,13 @@ function Canvas(props) {
 	let userText = props.capturedUserText;
 	const storageText = props.capturedStorageText;
 	const storageStatus = props.storageStatus;
-
 	let delTxtState = props.delTxtState;
+	const fontState = props.fontState;
+	const fontFamily = props.setFontFamily;
 
 	const ctxRef = useRef();
 
-	// console.log(ctxRef);
+	// console.log(fontState, fontFamily);
 
 	useEffect(() => {
 		const ctx = ctxRef.current.getContext('2d');
@@ -29,7 +30,10 @@ function Canvas(props) {
 			clearCanvas(ctx, canvasWidth, canvasHeight);
 		}
 
-		ctx.font = '4rem Tangerine';
+		fontState === true
+			? (ctx.font = `4rem ${fontFamily}`)
+			: (ctx.font = '4rem Tangerine');
+
 		ctx.fillStyle = 'White';
 
 		if (storageText !== null) {
@@ -44,7 +48,15 @@ function Canvas(props) {
 		if (userText.length === 0) {
 			clearCanvas(ctx, canvasWidth, canvasHeight);
 		}
-	}, [userText, delTxtState, props, storageText, storageStatus]);
+	}, [
+		userText,
+		delTxtState,
+		props,
+		storageText,
+		storageStatus,
+		fontFamily,
+		fontState,
+	]);
 
 	return <canvas id="displayText" ref={ctxRef}></canvas>;
 }
