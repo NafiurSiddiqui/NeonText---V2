@@ -31,8 +31,8 @@ const buttons = [
 		key: 4,
 	},
 	{
-		liClass: 'Raster',
-		id: 'Raster',
+		liClass: 'RasterSlice',
+		id: 'RasterSlice',
 		image: ImagesBtn.raster,
 		key: 5,
 	},
@@ -88,9 +88,6 @@ function UiFonts(props) {
 		}
 	};
 
-	
-
-	
 	
 	return (
 		<section
