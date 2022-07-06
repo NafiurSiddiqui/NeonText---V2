@@ -113,6 +113,28 @@ function UiColors(props) {
 		sethoverActive(false);
 	 };
 
+	 //Activating button
+	 const bulbClickHandler =(e)=>{
+		
+	 if(e.target.localName === 'i'){
+		//To stop double click on <i> el
+		e.stopPropagation();
+		//since i do not have colorCode available on this elelment, I target the parent
+		
+		const parentColorCode = e.target.parentElement.dataset.colorcode;
+		
+		setTargetColorCode(parentColorCode);
+	 } else{
+		
+		 setTargetColorCode(e.target.dataset.colorcode)
+	 }
+	 
+		// console.log(e.target.dataset.colorcode);
+		//getTheColorCode
+		
+	  };
+
+
 	//setting color
 
 	return (
@@ -139,6 +161,7 @@ function UiColors(props) {
 							targetColor={targetColorCode}
 							targetBulb={isHovered}
 							hoverActive={hoverActive}
+							onClick={bulbClickHandler}
 						/>
 					);
 				})}
