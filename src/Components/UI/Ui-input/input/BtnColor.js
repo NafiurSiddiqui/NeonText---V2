@@ -33,7 +33,7 @@ function BtnColor(props) {
 
 	
 
-	console.log(textShadowGlow);
+	// console.log(textShadowGlow);
 
 	return (
 		<li
