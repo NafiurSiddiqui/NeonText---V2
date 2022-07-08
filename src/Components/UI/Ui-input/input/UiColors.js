@@ -90,7 +90,7 @@ const colorBulbs = [
 ];
 
 function UiColors(props) {
-	const [bulbClicked, setBulbClicked] = useState(null);
+	const [bulbClicked, setBulbClicked] = useState(false);
 	const [hoverActive, sethoverActive] = useState(false);
 	const [targetColorCode, setTargetColorCode] = useState(null);
 	const [colorActive, setColorActive] = useState(null);
@@ -106,34 +106,36 @@ function UiColors(props) {
 	};
 
 	//mouseleave
-	const mouseOutHandler = (e) => {
+	const mouseOutHandler = () => {
+		setTargetColorCode(null);
 		sethoverActive(false);
 	};
 
 	//Activating button
 	const bulbClickHandler = (e) => {
+
+		setBulbClicked(false);
+		setColorActive(null);
+		
 		if (e.target.localName === 'i') {
 			//To stop double click on <i> el
 			e.stopPropagation();
 			//since i do not have colorCode available on this elelment, I target the parent
 			const parentColorCode = e.target.parentElement.dataset.colorcode;
 		
-			setTargetColorCode(parentColorCode);
+			// setTargetColorCode(parentColorCode);
 			setColorActive(parentColorCode);
 			setBulbClicked(true);
 		} else {
-			setTargetColorCode(e.target.dataset.colorcode);
+			// setTargetColorCode(e.target.dataset.colorcode);
 			setBulbClicked(true);
 			setColorActive(e.target.dataset.colorcode);
 
 		}
 
-		// console.log(e.target.dataset.colorcode);
-		//getTheColorCode
+		
 	};
-	// console.log(bulbActive);
-// console.log(colorActive);
-// console.log(targetColorCode);
+	
 	//setting color
 
 	return (
@@ -143,22 +145,24 @@ function UiColors(props) {
 			<h3 className="ui-input-form-heading">CHOOSE COLOUR</h3>
 			<ul className="ui-input-color-lists">
 				{colorBulbs.map((bulb) => {
-					const isActive = bulb.colorCode === targetColorCode;
-
+					const currentBulb = bulb.colorCode === colorActive;
+					// console.log(currentBulb);
 					const isHovered = bulb.colorCode === targetColorCode;
-
+					
 					return (
 						<BtnColor
 							colorClass={bulb.colorClass}
 							key={bulb.key}
 							colorCode={bulb.colorCode}
 							colorName={bulb.colorName}
+							
+							onClick={bulbClickHandler}
+							colorActive={colorActive}
 							bulbClicked={bulbClicked}
-							bulbActive={isActive}
+							bulbActive={currentBulb}
 							onMouseOver={mouseOverHanlder}
 							onMouseOut={mouseOutHandler}
 							targetColor={targetColorCode}
-							onClick={bulbClickHandler}
 							targetBulb={isHovered}
 							hoverActive={hoverActive}
 						/>
