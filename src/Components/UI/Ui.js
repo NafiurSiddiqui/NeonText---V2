@@ -4,6 +4,9 @@ import Header from '../Header';
 import UiDisplay from './Ui-display/UiDisplay';
 import UserInput from './Ui-input/input/UserInput';
 
+//default neonColor on load
+const defaultColor = '#20f020';
+
 function Ui() {
 	//UiText state
 	const [captureUserText, setCaptureUserText] = useState('');
@@ -14,6 +17,9 @@ function Ui() {
 	//UiFont state
 	const [fontFamily, setFontFamily] = useState();
 	const [fontState, getFontState] = useState(false);
+	//UiColor State
+	const [colorActive, setColorActive] = useState(defaultColor);
+
 
 	const delTxtStateHandler = (delTxtState) => {
 		setCapturedDelTxtState(delTxtState);
@@ -36,6 +42,12 @@ function Ui() {
 	const storageStatusHandler = (status) => {
 		setStorageStatus(status);
 	};
+	
+	const activeColorHandler =(color)=>{
+		setColorActive(color)
+	 };
+
+	 
 
 	return (
 		<>
@@ -51,6 +63,8 @@ function Ui() {
 						storageStatus={storageStatus}
 						getFontFamily={setFontFamily}
 						getFontState={getFontState}
+						getActiveColor={activeColorHandler}
+						activeColor={colorActive}
 					/>
 					<UiDisplay
 						capturedUserText={captureUserText}
@@ -60,6 +74,7 @@ function Ui() {
 						storageStatus={storageStatus}
 						setFontFamily={fontFamily}
 						fontState={fontState}
+						activeColor={colorActive}
 					/>
 				</section>
 			</main>

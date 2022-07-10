@@ -70,7 +70,7 @@ function UserInput(props) {
 						getFontFamily={props.getFontFamily}
 						getFontState={props.getFontState}
 					/>
-					<UiColors navState={navState.colorState} />
+					<UiColors navState={navState.colorState} getActiveColor={props.getActiveColor} activeColor={props.activeColor}/>
 				</div>
 			</div>
 			<PriceCards />

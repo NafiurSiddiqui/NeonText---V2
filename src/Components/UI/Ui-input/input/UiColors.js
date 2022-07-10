@@ -89,13 +89,16 @@ const colorBulbs = [
 	},
 ];
 
+
+
 function UiColors(props) {
-	const [bulbClicked, setBulbClicked] = useState(false);
+	
+	const [bulbClicked, setBulbClicked] = useState(true);
 	const [hoverActive, sethoverActive] = useState(false);
 	const [targetColorCode, setTargetColorCode] = useState(null);
-	const [colorActive, setColorActive] = useState(null);
 
-	// const bulbRef = useRef();
+
+	
 
 	//If mouseHover state is true, get the associated color code and set it, else
 
@@ -115,7 +118,7 @@ function UiColors(props) {
 	const bulbClickHandler = (e) => {
 
 		setBulbClicked(false);
-		setColorActive(null);
+		props.getActiveColor(null);
 		
 		if (e.target.localName === 'i') {
 			//To stop double click on <i> el
@@ -124,12 +127,12 @@ function UiColors(props) {
 			const parentColorCode = e.target.parentElement.dataset.colorcode;
 		
 			// setTargetColorCode(parentColorCode);
-			setColorActive(parentColorCode);
+			props.getActiveColor(parentColorCode);
 			setBulbClicked(true);
 		} else {
 			// setTargetColorCode(e.target.dataset.colorcode);
 			setBulbClicked(true);
-			setColorActive(e.target.dataset.colorcode);
+			props.getActiveColor(e.target.dataset.colorcode);
 
 		}
 
@@ -145,7 +148,7 @@ function UiColors(props) {
 			<h3 className="ui-input-form-heading">CHOOSE COLOUR</h3>
 			<ul className="ui-input-color-lists">
 				{colorBulbs.map((bulb) => {
-					const currentBulb = bulb.colorCode === colorActive;
+					const currentBulb = bulb.colorCode === props.activeColor;
 					// console.log(currentBulb);
 					const isHovered = bulb.colorCode === targetColorCode;
 					
@@ -157,7 +160,7 @@ function UiColors(props) {
 							colorName={bulb.colorName}
 							
 							onClick={bulbClickHandler}
-							colorActive={colorActive}
+							colorActive={props.activeColor}
 							bulbClicked={bulbClicked}
 							bulbActive={currentBulb}
 							onMouseOver={mouseOverHanlder}

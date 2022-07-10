@@ -1,13 +1,20 @@
-import { useRef } from "react";
 
-function NeonSwitch() {
+function NeonSwitch(props) {
 
-	 const switchRef = useRef();
 
-	 console.log(switchRef);
+
+	
+	const switchHandler =()=>{
+		
+		props.setNeonSwitch(prevState =>{
+
+			return !prevState
+		})
+	 };
+	
 	return (
 		<label className="switch">
-			<input type="checkbox" id="neonSwitch" ref={switchRef}/>
+			<input type="checkbox" id="neonSwitch" onClick={switchHandler} defaultChecked={props.neonSwitchState} />
 			<span className="slider round">
 				<span>On</span>
 				<span>Off</span>

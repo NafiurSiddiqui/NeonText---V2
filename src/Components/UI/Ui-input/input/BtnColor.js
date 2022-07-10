@@ -1,15 +1,20 @@
 import { useEffect, useState } from 'react';
 
+const defaultTextShadow = `0 0 4px white, 0 0 4px #20f020, 0 0 8px #20f020,
+0 0 12px #20f020, 0 0 16px #20f020, 0 0 18px #20f020`;
+
 function BtnColor(props) {
-
+	
 	//State for CSS properties
-	const [textShadowGlow, settextShadowGlow] = useState();
+	const [textShadowGlow, settextShadowGlow] = useState(defaultTextShadow);
 	const [colorGlow, setColorGlow] = useState( props.colorCode || null);
-
+	
 	
 
 
 	useEffect(() => {
+
+
 		if ((props.bulbClicked && props.bulbActive) ||(props.bulbClicked && props.bulbActive && !props.hoverActive )) {
 			//for TextShadow
 			settextShadowGlow(`0 0 4px white, 0 0 4px ${props.colorActive}, 0 0 8px ${props.colorActive},
@@ -33,7 +38,7 @@ function BtnColor(props) {
 
 	
 
-	// console.log(textShadowGlow);
+	// console.log(props.colorActive);
 
 	return (
 		<li

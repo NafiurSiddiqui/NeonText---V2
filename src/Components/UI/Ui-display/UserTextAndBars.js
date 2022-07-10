@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
 function UserTextAndBars(props) {
+	
+	
 	const [showBars, setShowBars] = useState(false);
 	const [width, setWidth] = useState();
 	const [displayText, setDisplayText] = useState('Your Text');
@@ -11,15 +13,20 @@ function UserTextAndBars(props) {
 	let letterHeight = props.letterHeight;
 	let txtState = props.txtState;
 	let userText = props.capturedUserText;
-	// let storageText = props.storageText;
 	let storeText = props.capturedStorageText;
 	const storageStatus = props.storageStatus;
+	//color states
+	const neonState = props.neonSwitchState;
+	const colorActive = props.activeColor;
+
+	// console.log(neonState);
+	
 
 	let txtLength = userText.length;
-	// console.log(props.setFontFamily);
-	// console.log(showBars);
+	
 	useEffect(() => {
 		let timerHandler = setTimeout(() => {
+
 			if (txtState === false && storeText === null) {
 				setShowBars(false);
 				setWidth('');
@@ -35,11 +42,6 @@ function UserTextAndBars(props) {
 			if (userText.length > 0) {
 				setDisplayText(userText);
 			}
-
-			// if (userText.length === 0 && storeText === null) {
-			// 	setDisplayText('Your Text');
-			// 	setWidth(``);
-			// }
 
 			if (userText.length === 0) {
 				setDisplayText('Your Text');
@@ -71,10 +73,11 @@ function UserTextAndBars(props) {
 			setLargeFont(false);
 		}
 	}, [props]);
-	// if (props.setFontFamily === 'RasterSlice') {
-	// 	setLargeFont(true);
-	// 	console.log('TRUE');
-	// }
+
+	const neonShadow = ` rgb(255, 255, 255) 0px 0px 5px, rgb(255, 255, 255) 0px 0px 10px,
+		${colorActive} 0px 0px 20px, ${colorActive} 0px 0px 30px,
+		${colorActive} 0px 0px 40px, ${colorActive} 0px 0px 55px,
+		${colorActive} 0px 0px 75px`;
 
 	return (
 		<>
@@ -89,6 +92,7 @@ function UserTextAndBars(props) {
 						style={{
 							fontFamily: props.setFontFamily,
 							fontSize: largeFont ? '40px' : '70px',
+							textShadow: !neonState? 'none':neonShadow
 						}}
 					>
 						{storageStatus && displayText}
