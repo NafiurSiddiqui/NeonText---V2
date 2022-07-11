@@ -5,12 +5,13 @@ import UserTextAndBars from './UserTextAndBars';
 
 function UiDisplay(props) {
 	//HERE
-	const [capturedLetterHeight, setCapturedLetterHeight] = useState();
+
+
 	const [toggleNeon, setToggleNeon] = useState(true);
 
 	const letterHeightHandler = (letterHeight) => {
 		// console.log(letterHeight);
-		setCapturedLetterHeight(letterHeight);
+		props.captureLetterHeight(letterHeight);
 	};
 
 	const neonSwitchHandler =(switchState)=>{
@@ -18,24 +19,28 @@ function UiDisplay(props) {
 		// console.log(toggleNeon);
 	 };
 
+	
+
 	return (
 		<article className="ui-display">
 			<NeonSwitch setNeonSwitch={neonSwitchHandler} neonSwitchState={toggleNeon} />
 			<div className="ui-display-userText-container">
 				<UserTextAndBars
 					capturedUserText={props.capturedUserText}
-					letterHeight={capturedLetterHeight}
+					letterHeight={props.letterHeight}
 					txtState={props.txtState}
 					capturedStorageText={props.capturedStorageText}
 					storageStatus={props.storageStatus}
 					setFontFamily={props.setFontFamily}
 					neonSwitchState={toggleNeon}
 					activeColor={props.activeColor}
+					setWidth={props.setWidth}
+					width={props.width}
 				/>
 				<Canvas
 					capturedUserText={props.capturedUserText}
 					delTxtState={props.delTxtState}
-					letterHeight={letterHeightHandler}
+					captureletterHeight={letterHeightHandler}
 					capturedStorageText={props.capturedStorageText}
 					storageStatus={props.storageStatus}
 					setFontFamily={props.setFontFamily}

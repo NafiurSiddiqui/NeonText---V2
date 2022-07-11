@@ -9,6 +9,9 @@ function UiText(props) {
 
 	const [storeText, setStoreText] = useState();
 
+	// console.log(userText);
+	// console.log(storeText);
+
 	const userTextChangeHandler = (e) => {
 		if (e.nativeEvent.inputType === 'deleteContentBackward') {
 			setdeletedText(e.target.value);

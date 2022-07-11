@@ -8,19 +8,27 @@ import UserInput from './Ui-input/input/UserInput';
 const defaultColor = '#20f020';
 
 function Ui() {
+
+
 	//UiText state
 	const [captureUserText, setCaptureUserText] = useState('');
 	const [capturedStorageText, setCapturedStorageText] = useState('');
 	const [storageStatus, setStorageStatus] = useState();
 	const [capturedDelTxtState, setCapturedDelTxtState] = useState();
 	const [txtState, setTxtState] = useState(false);
+
+	//DIMENSION
+	const [width, setWidth] = useState();
+	const [capturedLetterHeight, setCapturedLetterHeight] = useState();
 	//UiFont state
 	const [fontFamily, setFontFamily] = useState();
 	const [fontState, getFontState] = useState(false);
 	//UiColor State
 	const [colorActive, setColorActive] = useState(defaultColor);
 
+	// console.log(setWidth);
 
+	// console.log(storageStatus);
 	const delTxtStateHandler = (delTxtState) => {
 		setCapturedDelTxtState(delTxtState);
 		// console.log();
@@ -47,7 +55,11 @@ function Ui() {
 		setColorActive(color)
 	 };
 
+	const widthHandler =(width)=>{
+		setWidth(width);
+	 };
 	 
+	 console.log(capturedLetterHeight);
 
 	return (
 		<>
@@ -55,9 +67,12 @@ function Ui() {
 			<main className="container">
 				<section className="ui-container">
 					<UserInput
-						capturedUserText={captureUserTextHandler}
-						capturedStorageText={captureStorageTextHandler}
-						capturedDelTxtState={delTxtStateHandler}
+						captureUserText={captureUserTextHandler}
+						userText={captureUserText}
+						letterHeight={capturedLetterHeight}
+						captureStorageText={captureStorageTextHandler}
+						storageText={capturedStorageText}
+						captureDelTxtState={delTxtStateHandler}
 						txtState={txtStateHandler}
 						setStorageStatus={storageStatusHandler}
 						storageStatus={storageStatus}
@@ -68,6 +83,10 @@ function Ui() {
 					/>
 					<UiDisplay
 						capturedUserText={captureUserText}
+						captureLetterHeight={setCapturedLetterHeight}
+						letterHeight={capturedLetterHeight}
+						setWidth={widthHandler}
+						width={width}
 						delTxtState={capturedDelTxtState}
 						txtState={txtState}
 						capturedStorageText={capturedStorageText}

@@ -1,7 +1,8 @@
-import { useRef, useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { clearCanvas } from '../../HelperFunc';
 
 function Canvas(props) {
+	
 	let userText = props.capturedUserText;
 	const storageText = props.capturedStorageText;
 	const storageStatus = props.storageStatus;
@@ -11,19 +12,24 @@ function Canvas(props) {
 
 	const ctxRef = useRef();
 
-	// console.log(fontState, fontFamily);
+	// console.log();
 
 	useEffect(() => {
 		const ctx = ctxRef.current.getContext('2d');
 		const metrics = ctx.measureText(userText);
 
-		props.letterHeight(
+		// if (storageText !== undefined || null){
+		// 	props.captureletterHeight
+		// }
+		props.captureletterHeight(
 			Math.floor(metrics.actualBoundingBoxAscent) +
 				Math.floor(metrics.actualBoundingBoxDescent)
 		);
 
 		const canvasWidth = ctxRef.current.width;
 		const canvasHeight = ctxRef.current.height;
+
+		
 		//WRITE and CLEAR canvas here
 
 		if (delTxtState === true) {
@@ -36,10 +42,6 @@ function Canvas(props) {
 
 		ctx.fillStyle = 'White';
 
-		if (storageText !== null) {
-			clearCanvas(ctx, canvasWidth, canvasHeight);
-			ctx.fillText(storageText, 0, 50);
-		}
 
 		if (storageStatus === false) {
 			ctx.fillText(userText, 0, 50);
@@ -47,6 +49,12 @@ function Canvas(props) {
 
 		if (userText.length === 0) {
 			clearCanvas(ctx, canvasWidth, canvasHeight);
+		}
+
+		
+		if (storageText !== null) {
+			clearCanvas(ctx, canvasWidth, canvasHeight);
+			ctx.fillText(storageText, 0, 50);
 		}
 	}, [
 		userText,
