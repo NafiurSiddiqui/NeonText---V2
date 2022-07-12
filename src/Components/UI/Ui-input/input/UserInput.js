@@ -10,7 +10,7 @@ function UserInput(props) {
 	const [navTxtActive, setNavTxtActive] = useState(true);
 	const [navFontActive, setNavFontActive] = useState(false);
 	const [navColorActive, setNavColorActive] = useState(false);
-
+	
 	// console.log(props.userText);
 	// console.log(props.storageText);
 
@@ -27,9 +27,9 @@ function UserInput(props) {
 		props.captureUserText(userText);
 	};
 
-	const captureStorageTextHandler = (storageText) => {
-		props.captureStorageText(storageText);
-	};
+	// const captureStorageTextHandler = (storageText) => {
+	// 	props.captureStorageText(storageText);
+	// };
 
 	const navTxtStateHandler = (txtState) => {
 		setNavTxtActive(txtState);
@@ -41,6 +41,7 @@ function UserInput(props) {
 	const navColorStateHandler = (colorState) => {
 		setNavColorActive(colorState);
 	};
+	
 
 	const navState = {
 		txtState: navTxtActive,
@@ -48,7 +49,7 @@ function UserInput(props) {
 		colorState: navColorActive,
 	};
 
-	
+	// console.log();
 
 	return (
 		<article className="ui-input">
@@ -61,8 +62,9 @@ function UserInput(props) {
 				/>
 				<div className="ui-input-form-container">
 					<UiText
+						
 						onAddedUserText={onAddedUserTextHandler}
-						capturedStorageText={captureStorageTextHandler}
+						captureStorageText={props.captureStorageText}
 						onDelTxtState={onDelTxtStateHandler}
 						txtState={props.txtState}
 						navState={navState.txtState}
@@ -77,7 +79,7 @@ function UserInput(props) {
 					<UiColors navState={navState.colorState} getActiveColor={props.getActiveColor} activeColor={props.activeColor}/>
 				</div>
 			</div>
-			<PriceCards letterHeight={props.letterHeight} userText={props.userText} storageText={props.storageText} />
+			<PriceCards letterHeight={props.letterHeight} userText={props.userText} storageText={props.storageText} debounceStatus={props.debounceStatus} />
 		</article>
 	);
 }

@@ -8,11 +8,9 @@ import UserInput from './Ui-input/input/UserInput';
 const defaultColor = '#20f020';
 
 function Ui() {
-
-
 	//UiText state
 	const [captureUserText, setCaptureUserText] = useState('');
-	const [capturedStorageText, setCapturedStorageText] = useState('');
+	const [capturedStorageText, setCapturedStorageText] = useState();
 	const [storageStatus, setStorageStatus] = useState();
 	const [capturedDelTxtState, setCapturedDelTxtState] = useState();
 	const [txtState, setTxtState] = useState(false);
@@ -25,7 +23,12 @@ function Ui() {
 	const [fontState, getFontState] = useState(false);
 	//UiColor State
 	const [colorActive, setColorActive] = useState(defaultColor);
+	//Debounce state for priceCard
+	const [debounceActive, setDebounceActive] = useState(false);
 
+	const debounceHandler = (stat) => {
+		setDebounceActive(stat);
+	};
 	// console.log(setWidth);
 
 	// console.log(storageStatus);
@@ -50,16 +53,16 @@ function Ui() {
 	const storageStatusHandler = (status) => {
 		setStorageStatus(status);
 	};
-	
-	const activeColorHandler =(color)=>{
-		setColorActive(color)
-	 };
 
-	const widthHandler =(width)=>{
+	const activeColorHandler = (color) => {
+		setColorActive(color);
+	};
+
+	const widthHandler = (width) => {
 		setWidth(width);
-	 };
-	 
-	 console.log(capturedLetterHeight);
+	};
+
+	console.log(debounceActive);
 
 	return (
 		<>
@@ -80,8 +83,10 @@ function Ui() {
 						getFontState={getFontState}
 						getActiveColor={activeColorHandler}
 						activeColor={colorActive}
+						debounceStatus={debounceActive}
 					/>
 					<UiDisplay
+						setDebounce={debounceHandler}
 						capturedUserText={captureUserText}
 						captureLetterHeight={setCapturedLetterHeight}
 						letterHeight={capturedLetterHeight}

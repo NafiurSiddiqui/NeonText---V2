@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react';
 function UserTextAndBars(props) {
 	
 	
-	const [showBars, setShowBars] = useState(false);
-	
+	const [showBars, setShowBars] = useState(false);	
 	const [displayText, setDisplayText] = useState('Your Text');
 	//STYLING STATE
 	const [largeFont, setLargeFont] = useState();
@@ -19,7 +18,7 @@ function UserTextAndBars(props) {
 	const neonState = props.neonSwitchState;
 	const colorActive = props.activeColor;
 
-	// console.log(props.width);
+	
 	
 
 	let txtLength = userText.length;
@@ -27,15 +26,16 @@ function UserTextAndBars(props) {
 	useEffect(() => {
 		let timerHandler = setTimeout(() => {
 
-			if (txtState === false && storeText === null) {
-				// console.log('1');
-				setShowBars(false);
-				props.setWidth('');
-				setDisplayText('Your Text');
-			}
+			props.setDebounce(true);
+			// if (txtState === false && storeText === null) {
+			// 	// console.log('1');
+			// 	setDisplayText('Your Text');
+			// 	setShowBars(false);
+			// 	props.setWidth('');
+			// }
 
 			if (txtState === true || storeText !== null) {
-				// console.log('2');
+				console.log('2');
 				// console.log(storeText);
 				setShowBars(true);
 				props.setWidth(`${storeText.length * 2}CM`);
@@ -56,11 +56,14 @@ function UserTextAndBars(props) {
 			if (storageStatus === false && txtState === true) {
 				props.setWidth(`${txtLength * 2} CM`);
 			}
+
+			//debounceActive = true
 		}, 300);
 
-		return () => {
-	
+		return () => {	
 			clearTimeout(timerHandler);
+			//debouceActive = false
+			props.setDebounce(false);
 		};
 	}, [txtState, txtLength, storeText, userText, storageStatus,props]);
 	// NOTE : if largeFont then, setthe fontSize

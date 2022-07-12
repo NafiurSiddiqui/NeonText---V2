@@ -5,8 +5,8 @@ function PriceCard(props) {
 				<span className="ui-price-card__text-size"> {props.size}</span>
 
 				<span className="ui-price-card__small-price">
-					{' '}
-					{props.price || '----'}
+					
+					{`$ ${props.price || '----'}`}
 				</span>
 			</div>
 
@@ -20,7 +20,7 @@ function PriceCard(props) {
 
 				<div className="ui-price-card__height-container">
 					Height:
-					<span className="ui-price-card__small-height">
+					<span className="ui-price-card__small-height"> 
 						{props.height || '----'}
 					</span>
 				</div>

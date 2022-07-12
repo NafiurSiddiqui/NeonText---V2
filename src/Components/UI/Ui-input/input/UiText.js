@@ -6,21 +6,21 @@ function UiText(props) {
 	const [userText, setUserText] = useState('');
 	const [deletedText, setdeletedText] = useState('');
 	const [delTxtState, setDelTxtState] = useState(false);
-
+	const [isTouched, setIsTouched] = useState(false);
 	const [storeText, setStoreText] = useState();
+	
 
-	// console.log(userText);
-	// console.log(storeText);
-
+	
 	const userTextChangeHandler = (e) => {
 		if (e.nativeEvent.inputType === 'deleteContentBackward') {
 			setdeletedText(e.target.value);
 			setDelTxtState(true);
 		}
 		props.txtState(true);
+		setIsTouched(true);
 		setUserText(e.target.value);
 	};
-
+	
 	useEffect(() => {
 		if (userText.length >= 20) {
 			alert(
@@ -36,23 +36,33 @@ function UiText(props) {
 			localStorage.setItem(test, test);
 			localStorage.removeItem(test);
 			props.setStorageStatus(true);
-
+			
 			if (userText.length > 0) {
 				setStoreText(localStorage.setItem('storeText', userText));
+				props.captureStorageText(localStorage.setItem('storeText', userText))
+			}
+			
+			setStoreText(localStorage.getItem('storeText'));
+			
+			props.captureStorageText(storeText);
+			
+			//local storgae clearance
+			if (isTouched && userText.length === 0){
+				console.log('Text Wiped out!');
+				localStorage.clear();
+				props.txtState(false);
 			}
 
-			setStoreText(localStorage.getItem('storeText'));
-
-			props.capturedStorageText(storeText);
 		} catch (e) {
 			props.setStorageStatus(false);
-			// return false;
+			
 		}
-
+		
 		props.onDelTxtState(delTxtState);
 		props.onAddedUserText(userText);
-	}, [props, userText, deletedText, delTxtState, storeText]);
-
+	}, [props, userText, deletedText, delTxtState, storeText, isTouched]);
+	
+	
 	return (
 		<section
 			className={`ui-input-form text  ${props.navState ? 'ui-active' : ''}`}

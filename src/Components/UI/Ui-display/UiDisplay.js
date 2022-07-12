@@ -14,18 +14,20 @@ function UiDisplay(props) {
 		props.captureLetterHeight(letterHeight);
 	};
 
-	const neonSwitchHandler =(switchState)=>{
+	const neonSwitchHandler = (switchState) => {
 		setToggleNeon(switchState);
 		// console.log(toggleNeon);
-	 };
-
-	
+	};
 
 	return (
 		<article className="ui-display">
-			<NeonSwitch setNeonSwitch={neonSwitchHandler} neonSwitchState={toggleNeon} />
+			<NeonSwitch
+				setNeonSwitch={neonSwitchHandler}
+				neonSwitchState={toggleNeon}
+			/>
 			<div className="ui-display-userText-container">
 				<UserTextAndBars
+					setDebounce={props.setDebounce}
 					capturedUserText={props.capturedUserText}
 					letterHeight={props.letterHeight}
 					txtState={props.txtState}
