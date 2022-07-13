@@ -20,13 +20,7 @@ function UserTextAndBars(props) {
 
 	useEffect(() => {
 		let timerHandler = setTimeout(() => {
-			// if (txtState === false && storeText === null) {
-			// 	// console.log('1');
-			// 	setDisplayText('Your Text');
-			// 	setShowBars(false);
-			// 	props.setWidth('');
-			// }
-
+		
 			if (txtState === true || storeText !== null) {
 				console.log('2');
 				// console.log(storeText);

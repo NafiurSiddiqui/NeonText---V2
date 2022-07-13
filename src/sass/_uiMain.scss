@@ -1,12 +1,9 @@
-.ui-html {
-	overflow-x: hidden;
-}
 
 body.ui-body {
-	min-height: 115vh;
-	background: linear-gradient(180deg, #01101f 0%, #1b1b1b 68.37%, #a97171 100%);
+	min-height: 100vh;
+	background: linear-gradient(180deg, #01101f 0%, #1b1b1b 68.37%, #60783f 100%);
 	background-color: #2b1322;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 .ui-logo {
@@ -15,7 +12,7 @@ body.ui-body {
 	margin-top: 1em;
 	margin-bottom: 2em;
 	& a > img {
-		height: 2rem;
+		height: 3.2rem;
 	}
 }
 

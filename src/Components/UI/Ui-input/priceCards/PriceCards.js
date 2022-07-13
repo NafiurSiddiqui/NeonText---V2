@@ -52,15 +52,12 @@ function PriceCards(props) {
 	
 	}
 	
-	// console.log(storageText);
+	
 	
 	
 	const storageTextStatus = storageText === '---'; 
 
 	//Debounce true? calculate this.
-
-	
-
 	useEffect(() => {
 
 		
@@ -79,7 +76,6 @@ function PriceCards(props) {
 
 		}
 		//HEIGHT
-
 		const height ={
 			small: ` ${letterHeight} Cm`,
 			mid: ` ${Math.floor(letterHeight * 1.1)} Cm`,
@@ -108,7 +104,7 @@ function PriceCards(props) {
 	}, [debounceStat,letterHeight, storageTextStatus,userText,storageText,width])
 	
 
-	console.log(pricing);
+	// console.log(pricing);
 
 	// //PRICE
 	// const priceSmall = storageTextStatus? `${userText.length * 80}`:`${storageText.length * 80}`;

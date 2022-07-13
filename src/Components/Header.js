@@ -7,6 +7,7 @@ function Header(props) {
 			<Link to="/">
 				<img src={Logo} alt="Logo" className="img-logo" />
 			</Link>
+				
 		</header>
 	);
 }

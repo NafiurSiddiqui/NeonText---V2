@@ -13,8 +13,8 @@ function Body() {
 						Crafted with the artistic insight for you
 					</h2>
 
-					<button className="home-content-btn">
-						<Link to="/Ui" className="home-content-btn__link-ui">
+					<button className="home-content-btn" >
+						<Link to="/Ui" className="home-content-btn__link-ui" >
 							Create Text
 						</Link>
 					</button>

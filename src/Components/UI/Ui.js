@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import Header from '../Header';
 import UiDisplay from './Ui-display/UiDisplay';
 import UserInput from './Ui-input/input/UserInput';
@@ -25,6 +24,7 @@ function Ui() {
 	const [colorActive, setColorActive] = useState(defaultColor);
 	//Debounce state for priceCard
 	const [debounceActive, setDebounceActive] = useState(false);
+
 
 	const debounceHandler = (stat) => {
 		setDebounceActive(stat);
@@ -62,8 +62,11 @@ function Ui() {
 		setWidth(width);
 	};
 
-	// console.log(debounceActive);
+	// useEffect(()=>{
+		//  },[])
+			document.body.classList.add('ui-body');
 
+	
 	return (
 		<>
 			<Header className="ui-logo" />
