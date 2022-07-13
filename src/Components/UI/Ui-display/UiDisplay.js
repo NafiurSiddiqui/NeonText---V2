@@ -6,7 +6,6 @@ import UserTextAndBars from './UserTextAndBars';
 function UiDisplay(props) {
 	//HERE
 
-
 	const [toggleNeon, setToggleNeon] = useState(true);
 
 	const letterHeightHandler = (letterHeight) => {

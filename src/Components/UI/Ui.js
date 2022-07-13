@@ -62,7 +62,7 @@ function Ui() {
 		setWidth(width);
 	};
 
-	console.log(debounceActive);
+	// console.log(debounceActive);
 
 	return (
 		<>

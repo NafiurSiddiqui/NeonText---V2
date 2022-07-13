@@ -48,7 +48,7 @@ function UiText(props) {
 			
 			//local storgae clearance
 			if (isTouched && userText.length === 0){
-				console.log('Text Wiped out!');
+				// console.log('Text Wiped out!');
 				localStorage.clear();
 				props.txtState(false);
 			}

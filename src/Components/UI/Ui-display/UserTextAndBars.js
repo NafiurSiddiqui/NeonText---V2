@@ -1,9 +1,7 @@
 import { useEffect, useState } from 'react';
 
 function UserTextAndBars(props) {
-	
-	
-	const [showBars, setShowBars] = useState(false);	
+	const [showBars, setShowBars] = useState(false);
 	const [displayText, setDisplayText] = useState('Your Text');
 	//STYLING STATE
 	const [largeFont, setLargeFont] = useState();
@@ -18,15 +16,10 @@ function UserTextAndBars(props) {
 	const neonState = props.neonSwitchState;
 	const colorActive = props.activeColor;
 
-	
-	
-
 	let txtLength = userText.length;
-	
+
 	useEffect(() => {
 		let timerHandler = setTimeout(() => {
-
-			props.setDebounce(true);
 			// if (txtState === false && storeText === null) {
 			// 	// console.log('1');
 			// 	setDisplayText('Your Text');
@@ -43,6 +36,8 @@ function UserTextAndBars(props) {
 			}
 
 			if (userText.length > 0) {
+				props.setDebounce(true);
+
 				setDisplayText(userText);
 			}
 
@@ -60,12 +55,12 @@ function UserTextAndBars(props) {
 			//debounceActive = true
 		}, 300);
 
-		return () => {	
+		return () => {
 			clearTimeout(timerHandler);
 			//debouceActive = false
 			props.setDebounce(false);
 		};
-	}, [txtState, txtLength, storeText, userText, storageStatus,props]);
+	}, [txtState, txtLength, storeText, userText, storageStatus, props]);
 	// NOTE : if largeFont then, setthe fontSize
 
 	useEffect(() => {
@@ -99,7 +94,7 @@ function UserTextAndBars(props) {
 						style={{
 							fontFamily: props.setFontFamily,
 							fontSize: largeFont ? '40px' : '70px',
-							textShadow: !neonState? 'none':neonShadow
+							textShadow: !neonState ? 'none' : neonShadow,
 						}}
 					>
 						{storageStatus && displayText}
@@ -120,7 +115,9 @@ function UserTextAndBars(props) {
 				)}
 			</div>
 
-			<span className="measurementBar-width-length">{showBars && props.width}</span>
+			<span className="measurementBar-width-length">
+				{showBars && props.width}
+			</span>
 		</>
 	);
 }
