@@ -49,7 +49,7 @@ function UserInput(props) {
 		colorState: navColorActive,
 	};
 
-	// console.log();
+	
 
 	return (
 		<article className="ui-input">

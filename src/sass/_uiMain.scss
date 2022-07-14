@@ -4,21 +4,29 @@ body.ui-body {
 	background: linear-gradient(180deg, #01101f 0%, #1b1b1b 68.37%, #60783f 100%);
 	background-color: #2b1322;
 	overflow: hidden;
+	@include flexCentered;
+	flex-direction: column;
+}
+
+div#root{
+	height: 100%;
+    width: 100vw;
 }
 
 .ui-logo {
 	width: 100%;
 	margin-left: 1em;
 	margin-top: 1em;
-	margin-bottom: 2em;
+
 	& a > img {
 		height: 3.2rem;
 	}
 }
 
 main.container {
-	// @include borderTest(white);
+
 	width: 100%;
+	height: 80vh;
 	@include flexCentered;
 	flex-direction: column;
 }

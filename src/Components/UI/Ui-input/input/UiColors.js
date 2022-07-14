@@ -126,11 +126,11 @@ function UiColors(props) {
 			//since i do not have colorCode available on this elelment, I target the parent
 			const parentColorCode = e.target.parentElement.dataset.colorcode;
 		
-			// setTargetColorCode(parentColorCode);
+
 			props.getActiveColor(parentColorCode);
 			setBulbClicked(true);
 		} else {
-			// setTargetColorCode(e.target.dataset.colorcode);
+			
 			setBulbClicked(true);
 			props.getActiveColor(e.target.dataset.colorcode);
 

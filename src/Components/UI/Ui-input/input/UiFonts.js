@@ -61,7 +61,7 @@ const buttons = [
 
 
 function UiFonts(props) {
-	// const [btnActive, setbtnActive] = useState();
+
 	const [activeButtonId, setActiveButtonId] = useState(null);
 
 	
@@ -99,16 +99,12 @@ function UiFonts(props) {
 			<ul className="ui-input-fontFamily-lists">
 				{buttons.map((btn) => {
 					const isActive = btn.id === activeButtonId;
-					// console.log(`Button ID: ${btn.id}`);
-					// console.log(`ActiveBtn Id: ${activeButtonId}`);
+					
 					return (
 						<BtnFont
 							className={`ui-input-fontFamily-list ${btn.liClass} ${
 								isActive ? 'btn-active' : ''
 							}`}
-							// onClick={() => {
-							// 	setActiveButtonId(btn.id);
-							// }}
 							onClick={fontHandler}
 							key={btn.key}
 							id={btn.id}

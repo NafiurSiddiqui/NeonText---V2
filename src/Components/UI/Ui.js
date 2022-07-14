@@ -6,6 +6,7 @@ import UserInput from './Ui-input/input/UserInput';
 //default neonColor on load
 const defaultColor = '#20f020';
 
+
 function Ui() {
 	//UiText state
 	const [captureUserText, setCaptureUserText] = useState('');
@@ -29,7 +30,7 @@ function Ui() {
 	const debounceHandler = (stat) => {
 		setDebounceActive(stat);
 	};
-	// console.log(setWidth);
+	
 
 	// console.log(storageStatus);
 	const delTxtStateHandler = (delTxtState) => {
@@ -62,10 +63,10 @@ function Ui() {
 		setWidth(width);
 	};
 
-	// useEffect(()=>{
-		//  },[])
-			document.body.classList.add('ui-body');
-
+	
+	document.body.classList.add('ui-body');
+	
+	
 	
 	return (
 		<>

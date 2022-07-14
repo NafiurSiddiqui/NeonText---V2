@@ -1,5 +1,9 @@
 import { useEffect, useState } from 'react';
 
+const windowWidth = window.innerWidth;
+
+
+
 function UserTextAndBars(props) {
 	const [showBars, setShowBars] = useState(false);
 	const [displayText, setDisplayText] = useState('Your Text');
@@ -22,7 +26,7 @@ function UserTextAndBars(props) {
 		let timerHandler = setTimeout(() => {
 		
 			if (txtState === true || storeText !== null) {
-				console.log('2');
+				// console.log('2');
 				// console.log(storeText);
 				setShowBars(true);
 				props.setWidth(`${storeText.length * 2}CM`);
@@ -46,16 +50,16 @@ function UserTextAndBars(props) {
 				props.setWidth(`${txtLength * 2} CM`);
 			}
 
-			//debounceActive = true
+			
 		}, 300);
 
 		return () => {
 			clearTimeout(timerHandler);
-			//debouceActive = false
+			
 			props.setDebounce(false);
 		};
 	}, [txtState, txtLength, storeText, userText, storageStatus, props]);
-	// NOTE : if largeFont then, setthe fontSize
+	
 
 	useEffect(() => {
 		if (
@@ -75,6 +79,12 @@ function UserTextAndBars(props) {
 		${colorActive} 0px 0px 40px, ${colorActive} 0px 0px 55px,
 		${colorActive} 0px 0px 75px`;
 
+	const fontForLargeDevice = windowWidth > 2200? '7em': '5em';
+
+	const deviceWidth = windowWidth <= 600 ? '55px': fontForLargeDevice;
+
+	//OMG! What am i supposed t fix now? Where was i?
+	//got it!	
 	return (
 		<>
 			<div className="ui-display-userText-wrapper">
@@ -87,7 +97,7 @@ function UserTextAndBars(props) {
 						className="ui-display-userText-text neonOn"
 						style={{
 							fontFamily: props.setFontFamily,
-							fontSize: largeFont ? '40px' : '70px',
+							fontSize: largeFont ? '40px' : deviceWidth,
 							textShadow: !neonState ? 'none' : neonShadow,
 						}}
 					>

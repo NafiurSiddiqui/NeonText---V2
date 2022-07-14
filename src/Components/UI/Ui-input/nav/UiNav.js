@@ -1,9 +1,14 @@
+const windowWidth = window.innerWidth;
+const windowHeight = window.innerHeight;
+
+console.log(windowHeight);
+console.log(windowWidth);
+
 function UiNav(props) {
-	console.log();
+	
 	const navTxtActiveHandler = () => {
 		//Activate TEXT
 		props.setNavTxtState(true);
-
 		//Deactivate the rests
 		props.setNavFontState(false);
 		props.setNavColorState(false);
@@ -21,11 +26,25 @@ function UiNav(props) {
 	const navColorActiveHandler = () => {
 		//Activate TEXT
 		props.setNavColorState(true);
-
 		//Deactivate the rests
 		props.setNavTxtState(false);
 		props.setNavFontState(false);
 	};
+
+	if (props.navState.colorState){
+		 document.body.style.overflowY = 'scroll';
+		document.body.style.height = '140vh';
+
+	}else if(!props.navState.colorState && windowWidth < 860){
+		document.body.style.overflowY = 'scroll';
+		document.body.style.height = '140vh';
+	}
+	else	
+	{
+			document.body.style.overflowY = 'hidden';
+			document.body.style.height = '100vh';
+	}
+	
 
 	return (
 		<div className="ui-input-nav">
