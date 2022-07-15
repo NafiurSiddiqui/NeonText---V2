@@ -79,12 +79,13 @@ function UserTextAndBars(props) {
 		${colorActive} 0px 0px 40px, ${colorActive} 0px 0px 55px,
 		${colorActive} 0px 0px 75px`;
 
+	//FONTS
 	const fontForLargeDevice = windowWidth > 2200? '7em': '5em';
 
 	const deviceWidth = windowWidth <= 600 ? '55px': fontForLargeDevice;
 
-	//OMG! What am i supposed t fix now? Where was i?
-	//got it!	
+
+	
 	return (
 		<>
 			<div className="ui-display-userText-wrapper">
@@ -97,7 +98,7 @@ function UserTextAndBars(props) {
 						className="ui-display-userText-text neonOn"
 						style={{
 							fontFamily: props.setFontFamily,
-							fontSize: largeFont ? '40px' : deviceWidth,
+							fontSize: largeFont ? '3em' : deviceWidth,
 							textShadow: !neonState ? 'none' : neonShadow,
 						}}
 					>

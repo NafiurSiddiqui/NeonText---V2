@@ -47,14 +47,6 @@
 	}
 }
 
-//FOR TABLET issue
-
-// @media screen and (min-width: 800) and (min-height: 1000) {
-// 	main.container{
-// 		height: 100% !important;
-// 	}
-// }
-
 @media screen and (max-width: 860px) {
 	body.ui-body {
 		min-height: 180vh;
@@ -166,5 +158,25 @@
 			right: -100%;
 			animation: reflectionForSmallDevice 4s linear 8s infinite forwards !important;
 		}
+	}
+
+	header.ui-logo{
+		margin-bottom: 1.6em;
+	}
+}
+
+@media screen and (max-width:400px) {
+
+	.ui-input-color-lists{
+		grid-gap: 0;
+	}
+	
+	.ui-input-fontFamily-lists{
+		grid-gap: 16px;
+	}
+
+	.ui-input-fontFamily-list{
+		padding: 2.5vw;
+		width: 32vw !important;
 	}
 }

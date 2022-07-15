@@ -1,8 +1,6 @@
 const windowWidth = window.innerWidth;
-const windowHeight = window.innerHeight;
+// const windowHeight = window.innerHeight;
 
-console.log(windowHeight);
-console.log(windowWidth);
 
 function UiNav(props) {
 	
@@ -64,7 +62,7 @@ function UiNav(props) {
 					}`}
 					onClick={navFontActiveHandler}
 				>
-					Font Family
+					Fonts
 				</li>
 
 				<li
