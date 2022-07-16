@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 function UiText(props) {
-	//hooks
 
 	const [userText, setUserText] = useState('');
 	const [deletedText, setdeletedText] = useState('');
@@ -48,7 +47,7 @@ function UiText(props) {
 			
 			//local storgae clearance
 			if (isTouched && userText.length === 0){
-				// console.log('Text Wiped out!');
+			
 				localStorage.clear();
 				props.txtState(false);
 			}

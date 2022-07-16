@@ -4,18 +4,17 @@ import Canvas from './UiCanvas';
 import UserTextAndBars from './UserTextAndBars';
 
 function UiDisplay(props) {
-	//HERE
 
+	//Toggle switch for Neon
 	const [toggleNeon, setToggleNeon] = useState(true);
 
 	const letterHeightHandler = (letterHeight) => {
-		// console.log(letterHeight);
+
 		props.captureLetterHeight(letterHeight);
 	};
 
 	const neonSwitchHandler = (switchState) => {
 		setToggleNeon(switchState);
-		// console.log(toggleNeon);
 	};
 
 	return (

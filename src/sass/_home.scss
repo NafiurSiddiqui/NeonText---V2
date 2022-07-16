@@ -113,8 +113,7 @@ body {
 	}
 
 	&-ball {
-		// width: 18em;
-		// height: 18em;
+	
 		width: 19em;
 		@include flexCentered;
 		&-object {
@@ -201,37 +200,4 @@ body {
 	}
 }
 
-//Media break points
 
-@media screen and (max-width: 800px) {
-	.home-content {
-		line-height: 2.5rem;
-
-		&__btn {
-			margin-top: 1em;
-		}
-	}
-
-	.home-content__shapes {
-		&-displayTab {
-			border-width: 0.6em;
-		}
-		&-ball {
-			position: relative;
-			right: -15%;
-			width: 16em;
-			height: 17em;
-
-			&-object {
-				width: 250px;
-				height: 120px;
-				position: relative;
-				bottom: -2em;
-			}
-
-			&-shadow {
-				visibility: hidden;
-			}
-		}
-	}
-}

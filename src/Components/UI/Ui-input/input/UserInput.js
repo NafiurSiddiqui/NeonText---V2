@@ -11,15 +11,10 @@ function UserInput(props) {
 	const [navFontActive, setNavFontActive] = useState(false);
 	const [navColorActive, setNavColorActive] = useState(false);
 	
-	// console.log(props.userText);
-	// console.log(props.storageText);
-
 
 	const onDelTxtStateHandler = (delTxtState) => {
 		//capture the text here
-
 		props.captureDelTxtState(delTxtState);
-		// console.log(delTxtState);
 	};
 
 	const onAddedUserTextHandler = (userText) => {
@@ -27,9 +22,7 @@ function UserInput(props) {
 		props.captureUserText(userText);
 	};
 
-	// const captureStorageTextHandler = (storageText) => {
-	// 	props.captureStorageText(storageText);
-	// };
+	
 
 	const navTxtStateHandler = (txtState) => {
 		setNavTxtActive(txtState);

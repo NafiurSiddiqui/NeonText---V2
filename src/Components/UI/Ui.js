@@ -32,10 +32,10 @@ function Ui() {
 	};
 	
 
-	// console.log(storageStatus);
+
 	const delTxtStateHandler = (delTxtState) => {
 		setCapturedDelTxtState(delTxtState);
-		// console.log();
+	
 	};
 
 	const txtStateHandler = (txtState) => {
@@ -44,7 +44,7 @@ function Ui() {
 
 	const captureUserTextHandler = (userText) => {
 		setCaptureUserText(userText);
-		// console.log(userText);
+
 	};
 
 	const captureStorageTextHandler = (storageText) => {

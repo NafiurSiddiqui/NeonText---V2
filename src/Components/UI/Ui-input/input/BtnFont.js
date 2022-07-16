@@ -1,4 +1,4 @@
-// import ImagesBtn from '../../../Images';
+
 
 function BtnFont(props) {
 	return (

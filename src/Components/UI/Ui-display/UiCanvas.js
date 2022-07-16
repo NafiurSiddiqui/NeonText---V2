@@ -12,15 +12,10 @@ function Canvas(props) {
 
 	const ctxRef = useRef();
 
-	// console.log();
-
 	useEffect(() => {
 		const ctx = ctxRef.current.getContext('2d');
 		const metrics = ctx.measureText(userText);
 
-		// if (storageText !== undefined || null){
-		// 	props.captureletterHeight
-		// }
 		props.captureletterHeight(
 			Math.floor(metrics.actualBoundingBoxAscent) +
 				Math.floor(metrics.actualBoundingBoxDescent)
@@ -30,8 +25,7 @@ function Canvas(props) {
 		const canvasHeight = ctxRef.current.height;
 
 		
-		//WRITE and CLEAR canvas here
-
+		//WRITE and CLEAR canvas 
 		if (delTxtState === true) {
 			clearCanvas(ctx, canvasWidth, canvasHeight);
 		}

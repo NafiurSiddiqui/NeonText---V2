@@ -1,5 +1,5 @@
 const windowWidth = window.innerWidth;
-// const windowHeight = window.innerHeight;
+
 
 
 function UiNav(props) {

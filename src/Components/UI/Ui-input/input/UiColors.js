@@ -89,18 +89,12 @@ const colorBulbs = [
 	},
 ];
 
-
-
 function UiColors(props) {
-	
 	const [bulbClicked, setBulbClicked] = useState(true);
 	const [hoverActive, sethoverActive] = useState(false);
 	const [targetColorCode, setTargetColorCode] = useState(null);
 
-
-	
-
-	//If mouseHover state is true, get the associated color code and set it, else
+	//MouseOver state?, get the associated color code and set it
 
 	//Mouseenter
 	const mouseOverHanlder = (e) => {
@@ -116,29 +110,23 @@ function UiColors(props) {
 
 	//Activating button
 	const bulbClickHandler = (e) => {
-
 		setBulbClicked(false);
 		props.getActiveColor(null);
-		
+
 		if (e.target.localName === 'i') {
 			//To stop double click on <i> el
 			e.stopPropagation();
 			//since i do not have colorCode available on this elelment, I target the parent
 			const parentColorCode = e.target.parentElement.dataset.colorcode;
-		
 
 			props.getActiveColor(parentColorCode);
 			setBulbClicked(true);
 		} else {
-			
 			setBulbClicked(true);
 			props.getActiveColor(e.target.dataset.colorcode);
-
 		}
-
-		
 	};
-	
+
 	//setting color
 
 	return (
@@ -149,16 +137,14 @@ function UiColors(props) {
 			<ul className="ui-input-color-lists">
 				{colorBulbs.map((bulb) => {
 					const currentBulb = bulb.colorCode === props.activeColor;
-					// console.log(currentBulb);
 					const isHovered = bulb.colorCode === targetColorCode;
-					
+
 					return (
 						<BtnColor
 							colorClass={bulb.colorClass}
 							key={bulb.key}
 							colorCode={bulb.colorCode}
 							colorName={bulb.colorName}
-							
 							onClick={bulbClickHandler}
 							colorActive={props.activeColor}
 							bulbClicked={bulbClicked}

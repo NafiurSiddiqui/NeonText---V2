@@ -26,8 +26,7 @@ function UserTextAndBars(props) {
 		let timerHandler = setTimeout(() => {
 		
 			if (txtState === true || storeText !== null) {
-				// console.log('2');
-				// console.log(storeText);
+			
 				setShowBars(true);
 				props.setWidth(`${storeText.length * 2}CM`);
 				setDisplayText(storeText);
@@ -40,7 +39,7 @@ function UserTextAndBars(props) {
 			}
 
 			if (userText.length === 0) {
-				// console.log('4');
+			
 				setDisplayText('Your Text');
 				props.setWidth(``);
 				setShowBars(false);
@@ -49,8 +48,6 @@ function UserTextAndBars(props) {
 			if (storageStatus === false && txtState === true) {
 				props.setWidth(`${txtLength * 2} CM`);
 			}
-
-			
 		}, 300);
 
 		return () => {
@@ -68,7 +65,6 @@ function UserTextAndBars(props) {
 			props.setFontFamily === 'Orbitron'
 		) {
 			setLargeFont(true);
-			// console.log('TRUE');
 		} else {
 			setLargeFont(false);
 		}
@@ -81,7 +77,6 @@ function UserTextAndBars(props) {
 
 	//FONTS
 	const fontForLargeDevice = windowWidth > 2200? '7em': '5em';
-
 	const deviceWidth = windowWidth <= 600 ? '55px': fontForLargeDevice;
 
 

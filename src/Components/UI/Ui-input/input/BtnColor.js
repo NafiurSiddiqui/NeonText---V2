@@ -38,7 +38,7 @@ function BtnColor(props) {
 
 	
 
-	// console.log(props.colorActive);
+
 
 	return (
 		<li

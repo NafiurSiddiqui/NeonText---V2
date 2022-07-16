@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# CUSTOM NEON TEXT APP (version 2.0)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Turn your text into a custom neon light and lit up your place with neon induced aura! This App can be used by people who runs a business of building custom neon signboard, nameplate and such. This app is also highly modifiable according to the client's need.
+v2 codwise is not opitmum since i just made it with props drilling which i am going to take care of in v2.1 and v2.2.
 
-## Available Scripts
 
-In the project directory, you can run:
+Vist: [Client website](...)
+Vist: [v2 website](...)
 
-### `npm start`
+## Note for developer and clients
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Plz _beware_ of the licensing issue for the custom fonts.
+Check out the links below for the licensing of the fonts used here that requires licensing for commercial use.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [Amsterdam](https://www.cdnfonts.com/amsterdam-2.font)
 
-### `npm test`
+- [Amanda](https://www.cdnfonts.com/amanda.font)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### features -
 
-### `npm run build`
+- Type your text < 20 character
+- Choose from the range of 8 google fonts
+- set the color between 12 unique colors
+- Pricing is based on the characters, so basically the width.
+- a switch to turn the neon and off
+- shows off the dimension of the text
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## :bug: BUGS from v1
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- unpredictable behaviour for the computed style of the height, needs double clicking to render the accurate size.
 
-### `npm run eject`
+## Solution to bugs
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Fixed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Some of the technical aspect i have implemented in this version of the webApp (almost)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
+- React (no third party libs)
 
-## Learn More
+- SASS.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Debouncing algorithm -- to purposefully save resources and time therefore good optimization and speed. ( i have a custom debounce hook here which is not used here but left for reference for next updates)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- One of the most trickiest and challenging part was to get the height of each characters, which i did with the help of masking a canvas.
 
-### Code Splitting
+- Dynamic calculation of price and dimensions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Dynamic mapping of colors to set the neon color
 
-### Analyzing the Bundle Size
+- Allows user to select between given fonts and render accurate data.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Caching with local storage to reassure user gets the text, dimension, price where they left in case they close or refresh the tab.
 
-### Making a Progressive Web App
+- Algortihtm for checking local storage availibility
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Responsiveness ensured which adapts to all of the devices out there.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
