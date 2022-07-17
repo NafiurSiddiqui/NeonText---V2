@@ -7,6 +7,12 @@ body {
 }
 
 
+div#root{
+	height: 100%;
+    width: 100vw;
+	overflow: hidden;
+}
+
 
 .home-logo {
 	& a > img {
