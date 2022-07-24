@@ -2,7 +2,7 @@
 function NeonSwitch(props) {
 
 
-
+	console.log(props.neonSwitchState);
 	
 	const switchHandler =()=>{
 		
@@ -15,9 +15,9 @@ function NeonSwitch(props) {
 	return (
 		<label className="switch">
 			<input type="checkbox" id="neonSwitch" onClick={switchHandler} defaultChecked={props.neonSwitchState} />
-			<span className="slider round">
-				<span>On</span>
-				<span>Off</span>
+			<span className="slider round" role='switch' aria-checked={props.neonSwitchState? 'true':'false'}>
+				<span aria-hidden="true" >On</span>
+				<span aria-hidden="true" >Off</span>
 			</span>
 		</label>
 	);
