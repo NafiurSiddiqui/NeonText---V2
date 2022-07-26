@@ -1,68 +1,12 @@
-import { useState } from 'react';
 import Header from '../Header';
 import UiDisplay from './Ui-display/UiDisplay';
 import UserInput from './Ui-input/input/UserInput';
 
-//default neonColor on load
-const defaultColor = '#20f020';
+
 
 
 function Ui() {
-	//UiText state
-	const [captureUserText, setCaptureUserText] = useState('');
-	const [capturedStorageText, setCapturedStorageText] = useState();
-	const [storageStatus, setStorageStatus] = useState();
-	const [delTxtState, setDelTxtState] = useState();
-	const [txtState, setTxtState] = useState(false);
-
-	//DIMENSION
-	const [width, setWidth] = useState();
-	const [capturedLetterHeight, setCapturedLetterHeight] = useState();
-	//UiFont state
-	const [fontFamily, setFontFamily] = useState();
-	const [fontState, getFontState] = useState(false);
-	//UiColor State
-	const [colorActive, setColorActive] = useState(defaultColor);
-	//Debounce state for priceCard
-	const [debounceActive, setDebounceActive] = useState(false);
-
-
-	const debounceHandler = (stat) => {
-		setDebounceActive(stat);
-	};
 	
-
-
-	const delTxtStateHandler = (delTxtState) => {
-		setDelTxtState(delTxtState);
-	
-	};
-
-	const txtStateHandler = (txtState) => {
-		setTxtState(txtState);
-	};
-
-	const captureUserTextHandler = (userText) => {
-		setCaptureUserText(userText);
-
-	};
-
-	const captureStorageTextHandler = (storageText) => {
-		setCapturedStorageText(storageText);
-	};
-
-	const storageStatusHandler = (status) => {
-		setStorageStatus(status);
-	};
-
-	const activeColorHandler = (color) => {
-		setColorActive(color);
-	};
-
-	const widthHandler = (width) => {
-		setWidth(width);
-	};
-
 	
 	document.body.classList.add('ui-body');
 	
