@@ -1,20 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function UiText(props) {
 
-	
-
+	//STATE is moved to the uiText-ctx
+	const [userText, setUserText] = useState('');
+	const [isTouched, setIsTouched] = useState(false);
+	const [storeText, setStoreText] = useState();
 	
 	const userTextChangeHandler = (e) => {
 		if (e.nativeEvent.inputType === 'deleteContentBackward') {
-			setdeletedText(e.target.value);
-			setDelTxtState(true);
+			props.getDelTxtState(true);
 		}
 		props.txtState(true);
 		setIsTouched(true);
 		setUserText(e.target.value);
 	};
+
 	
+
 	useEffect(() => {
 		if (userText.length >= 20) {
 			alert(
@@ -52,9 +55,9 @@ function UiText(props) {
 			
 		}
 		
-		props.onDelTxtState(delTxtState);
+		// props.onDelTxtState(delTxtState);
 		props.onAddedUserText(userText);
-	}, [props, userText, deletedText, delTxtState, storeText, isTouched]);
+	}, [props, userText,  storeText, isTouched]);
 	
 	
 	return (

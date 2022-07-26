@@ -14,7 +14,7 @@ function UserInput(props) {
 
 	const onDelTxtStateHandler = (delTxtState) => {
 		//capture the text here
-		props.captureDelTxtState(delTxtState);
+		props.getDelTxtState(delTxtState);
 	};
 
 	const onAddedUserTextHandler = (userText) => {
@@ -54,11 +54,10 @@ function UserInput(props) {
 					navState={navState}
 				/>
 				<div className="ui-input-form-container">
-					<UiText
-						
+					<UiText				
 						onAddedUserText={onAddedUserTextHandler}
 						captureStorageText={props.captureStorageText}
-						onDelTxtState={onDelTxtStateHandler}
+						getDelTxtState={onDelTxtStateHandler}
 						txtState={props.txtState}
 						navState={navState.txtState}
 						setStorageStatus={props.setStorageStatus}

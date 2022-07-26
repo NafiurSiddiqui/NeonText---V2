@@ -12,7 +12,7 @@ function Ui() {
 	const [captureUserText, setCaptureUserText] = useState('');
 	const [capturedStorageText, setCapturedStorageText] = useState();
 	const [storageStatus, setStorageStatus] = useState();
-	const [capturedDelTxtState, setCapturedDelTxtState] = useState();
+	const [delTxtState, setDelTxtState] = useState();
 	const [txtState, setTxtState] = useState(false);
 
 	//DIMENSION
@@ -34,7 +34,7 @@ function Ui() {
 
 
 	const delTxtStateHandler = (delTxtState) => {
-		setCapturedDelTxtState(delTxtState);
+		setDelTxtState(delTxtState);
 	
 	};
 
@@ -79,7 +79,7 @@ function Ui() {
 						letterHeight={capturedLetterHeight}
 						captureStorageText={captureStorageTextHandler}
 						storageText={capturedStorageText}
-						captureDelTxtState={delTxtStateHandler}
+						getDelTxtState={delTxtStateHandler}
 						txtState={txtStateHandler}
 						setStorageStatus={storageStatusHandler}
 						storageStatus={storageStatus}
@@ -96,7 +96,7 @@ function Ui() {
 						letterHeight={capturedLetterHeight}
 						setWidth={widthHandler}
 						width={width}
-						delTxtState={capturedDelTxtState}
+						delTxtState={delTxtState}
 						txtState={txtState}
 						capturedStorageText={capturedStorageText}
 						storageStatus={storageStatus}
