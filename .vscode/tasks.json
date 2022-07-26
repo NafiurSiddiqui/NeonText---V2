@@ -23,7 +23,7 @@
 		{
 			"label": "push/main",
 			"type": "shell",
-			"command": "git push origin main ",
+			"command": "git push origin 2.1",
 			"problemMatcher": []
 		},
 		{
