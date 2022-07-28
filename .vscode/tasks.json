@@ -21,7 +21,7 @@
 			"command": "git commit -m 'progress' "
 		},
 		{
-			"label": "push/main",
+			"label": "push/2.1",
 			"type": "shell",
 			"command": "git push origin 2.1",
 			"problemMatcher": []

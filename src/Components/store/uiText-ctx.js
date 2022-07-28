@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //UI state management here.
 
 //? should you create multiple context in one file or separte?
@@ -91,7 +91,11 @@ export const TextCtxProvider = (props) => {
 	};
 
 	//create all of them inside an object
-	const textState = {};
+	const textState = {
+		//Assign the states here
+	};
 	//return the provider
-	<textCtx.Provider value={textState}>{props.children}</textCtx.Provider>;
+	return (
+		<textCtx.Provider value={textState}>{props.children}</textCtx.Provider>
+	);
 };
