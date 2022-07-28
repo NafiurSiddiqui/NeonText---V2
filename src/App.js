@@ -1,6 +1,7 @@
+import { Route, Routes } from 'react-router-dom';
 import Home from './Components/Home/Home';
+
 import Ui from './Components/UI/Ui';
-import { Routes, Route } from 'react-router-dom';
 
 function App() {
 	return (

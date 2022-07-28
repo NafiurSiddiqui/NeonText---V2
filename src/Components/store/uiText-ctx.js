@@ -14,11 +14,11 @@ const textCtx = React.createContext({
 		storageStatus: null,
 		delTxtState: false,
 		txtState: false,
-		captureUserText: () => {},
-		captureStorageText: () => {},
+		getUserText: () => {},
+		getStorageText: () => {},
 		getStorageStatus: () => {},
 		setDelTxtState: () => {},
-		setTxtState: () => {},
+		getTxtState: () => {},
 	},
 	fontInput: {
 		fontFamily: null,
@@ -29,6 +29,12 @@ const textCtx = React.createContext({
 	colorInput: {
 		colorActive: defaultColor,
 		setColorActive: () => {},
+	},
+	dimension: {
+		width: 0,
+		height: 0,
+		widthHandler: () => {},
+		heightHandler: () => {},
 	},
 	debouncer: {
 		debounceStatus: false,
@@ -41,18 +47,20 @@ const textCtx = React.createContext({
 export const TextCtxProvider = (props) => {
 	//set uiInput state management here
 	//UiText state
-	const [captureUserText, setCaptureUserText] = useState('');
-	const [capturedStorageText, setCapturedStorageText] = useState();
+	// const [captureUserText, setCaptureUserText] = useState('');
+	const [userText, setUserText] = useState('');
+	// const [capturedStorageText, setCapturedStorageText] = useState();
+	const [storageText, setStorageText] = useState();
 	const [storageStatus, setStorageStatus] = useState();
 	const [delTxtState, setDelTxtState] = useState();
 	const [txtState, setTxtState] = useState(false);
 
 	//DIMENSION
 	const [width, setWidth] = useState();
-	const [capturedLetterHeight, setCapturedLetterHeight] = useState();
+	const [letterHeight, setLetterHeight] = useState();
 	//UiFont state
 	const [fontFamily, setFontFamily] = useState();
-	const [fontState, getFontState] = useState(false);
+	const [fontState, setFontState] = useState(false);
 	//UiColor State
 	const [colorActive, setColorActive] = useState(defaultColor);
 	//Debounce state for priceCard
@@ -70,20 +78,32 @@ export const TextCtxProvider = (props) => {
 		setTxtState(txtState);
 	};
 
-	const captureUserTextHandler = (userText) => {
-		setCaptureUserText(userText);
+	const getUserTextHandler = (userText) => {
+		setUserText(userText);
 	};
 
-	const captureStorageTextHandler = (storageText) => {
-		setCapturedStorageText(storageText);
+	const getStorageTextHandler = (storageText) => {
+		setStorageText(storageText);
 	};
 
 	const storageStatusHandler = (status) => {
 		setStorageStatus(status);
 	};
 
+	const fontFamilyHandler = (fontFamily) => {
+		setFontFamily(fontFamily);
+	};
+
+	const fontStateHandler = (fontState) => {
+		setFontState(fontState);
+	};
+
 	const activeColorHandler = (color) => {
 		setColorActive(color);
+	};
+
+	const heightHandler=(height)=>{
+		setLetterHeight(height);
 	};
 
 	const widthHandler = (width) => {
@@ -93,9 +113,43 @@ export const TextCtxProvider = (props) => {
 	//create all of them inside an object
 	const textState = {
 		//Assign the states here
+		textInput: {
+			userText: userText,
+			storageText: storageText,
+			storageStatus: storageStatus,
+			delTxtState: delTxtState,
+			txtState: txtState,
+			getUserText: getUserTextHandler,
+			getStorageText: getStorageTextHandler,
+			getStorageStatus: storageStatusHandler,
+			setDelTxtState: delTxtStateHandler,
+			getTxtState: txtStateHandler,
+		},
+		fontInput: {
+			fontFamily: fontFamily,
+			fontState: fontState,
+			setFontFamily: fontFamilyHandler,
+			getFontState: fontStateHandler,
+		},
+		colorInput: {
+			colorActive: colorActive,
+			setColorActive: activeColorHandler,
+		},
+		dimension: {
+			width: width,
+			height: letterHeight,
+			widthHandler:widthHandler,
+			heightHandler: heightHandler,
+		},
+		debouncer: {
+			debounceStatus: debounceActive,
+			setDebounceState: debounceHandler,
+		},
 	};
 	//return the provider
 	return (
 		<textCtx.Provider value={textState}>{props.children}</textCtx.Provider>
 	);
 };
+
+export default textCtx;

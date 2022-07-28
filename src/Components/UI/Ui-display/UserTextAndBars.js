@@ -20,6 +20,7 @@ function UserTextAndBars(props) {
 	const neonState = props.neonSwitchState;
 	const colorActive = props.activeColor;
 
+	// let txtLength = userText.length;
 	let txtLength = userText.length;
 
 	useEffect(() => {

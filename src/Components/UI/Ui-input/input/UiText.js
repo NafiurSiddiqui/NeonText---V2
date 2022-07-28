@@ -1,17 +1,27 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import textCtx from '../../../store/uiText-ctx';
 
 function UiText(props) {
 
+	
 	//STATE is moved to the uiText-ctx
 	const [userText, setUserText] = useState('');
 	const [isTouched, setIsTouched] = useState(false);
 	const [storeText, setStoreText] = useState();
+
+	const userTxtCtx = useContext(textCtx);
+
+	
+
 	
 	const userTextChangeHandler = (e) => {
 		if (e.nativeEvent.inputType === 'deleteContentBackward') {
-			props.getDelTxtState(true);
+			// props.getDelTxtState(true);
+			userTxtCtx.textInput.setDelTxtState(true);
+
 		}
-		props.txtState(true);
+			// props.txtState(true);
+		userTxtCtx.textInput.getTxtState(true);
 		setIsTouched(true);
 		setUserText(e.target.value);
 	};
@@ -32,11 +42,14 @@ function UiText(props) {
 			//storage availability
 			localStorage.setItem(test, test);
 			localStorage.removeItem(test);
-			props.setStorageStatus(true);
-			
+			// props.setStorageStatus(true);
+			userTxtCtx.textInput.getStorageStatus(true)		
+
 			if (userText.length > 0) {
 				setStoreText(localStorage.setItem('storeText', userText));
-				props.captureStorageText(localStorage.setItem('storeText', userText))
+				// props.captureStorageText(localStorage.setItem('storeText', userText))
+
+				userTxtCtx.textInput.getStorageText(localStorage.setItem('storeText', userText))
 			}
 			
 			setStoreText(localStorage.getItem('storeText'));
