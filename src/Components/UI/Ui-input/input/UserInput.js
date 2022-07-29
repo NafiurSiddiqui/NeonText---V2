@@ -12,15 +12,15 @@ function UserInput(props) {
 	const [navColorActive, setNavColorActive] = useState(false);
 	
 
-	const onDelTxtStateHandler = (delTxtState) => {
-		//capture the text here
-		props.captureDelTxtState(delTxtState);
-	};
+	// const onDelTxtStateHandler = (delTxtState) => {
+	// 	//capture the text here
+	// 	props.getDelTxtState(delTxtState);
+	// };
 
-	const onAddedUserTextHandler = (userText) => {
-		//capture the text here
-		props.captureUserText(userText);
-	};
+	// const onAddedUserTextHandler = (userText) => {
+	// 	//capture the text here
+	// 	props.captureUserText(userText);
+	// };
 
 	
 
@@ -54,11 +54,10 @@ function UserInput(props) {
 					navState={navState}
 				/>
 				<div className="ui-input-form-container">
-					<UiText
-						
-						onAddedUserText={onAddedUserTextHandler}
+					<UiText				
+						// onAddedUserText={onAddedUserTextHandler}
 						captureStorageText={props.captureStorageText}
-						onDelTxtState={onDelTxtStateHandler}
+						// getDelTxtState={onDelTxtStateHandler}
 						txtState={props.txtState}
 						navState={navState.txtState}
 						setStorageStatus={props.setStorageStatus}
