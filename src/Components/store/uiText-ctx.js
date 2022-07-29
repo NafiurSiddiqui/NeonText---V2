@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 //UI state management here.
 
 //? should you create multiple context in one file or separte?
@@ -15,11 +15,7 @@ export const TextCtxProvider = (props)=>{
     //set uiInput state management here
 
 
-    const [userText, setUserText] = useState('');
-	const [deletedText, setdeletedText] = useState('');
-	const [delTxtState, setDelTxtState] = useState(false);
-	const [isTouched, setIsTouched] = useState(false);
-	const [storeText, setStoreText] = useState();
+
 	
 
     //create all of them inside an object

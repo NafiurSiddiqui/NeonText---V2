@@ -1,8 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 function UiText(props) {
 
-	
+	const [userText, setUserText] = useState('');
+	const [deletedText, setdeletedText] = useState('');
+	const [delTxtState, setDelTxtState] = useState(false);
+	const [isTouched, setIsTouched] = useState(false);
+	const [storeText, setStoreText] = useState();
 
 	
 	const userTextChangeHandler = (e) => {
