@@ -20,9 +20,9 @@ function Body() {
 					</button>
 				</section>
 
-				<section className="home-content__shapes">
-					<div className="home-content__shapes-displayTab"></div>
-					<div className="home-content__shapes-ball">
+				<section className="home-content__shapes" aria-hidden="true" >
+					<div className="home-content__shapes-displayTab" aria-hidden="true" ></div>
+					<div className="home-content__shapes-ball" aria-hidden="true" >
 						<div className="home-content__shapes-ball-object"></div>
 						<div className="home-content__shapes-ball-shadow"></div>
 					</div>

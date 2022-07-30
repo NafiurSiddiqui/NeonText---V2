@@ -46,7 +46,7 @@ Fixed.
 
 - SASS.
 
-- Debouncing algorithm -- to purposefully save resources and time therefore good optimization and speed. ( i have a custom debounce hook here which is not used here but left for reference for next updates)
+- Debouncing algorithm -- to save resources and time therefore good optimization and speed. ( i have a custom debounce hook here which is not used here but left for reference for next updates)
 
 - One of the most trickiest and challenging part was to get the height of each characters, which i did with the help of masking a canvas.
 
