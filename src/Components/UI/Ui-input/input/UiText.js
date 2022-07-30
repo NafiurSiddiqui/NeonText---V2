@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import textCtx from '../../../store/txtCtx';
 
 function UiText(props) {
 
@@ -8,7 +9,8 @@ function UiText(props) {
 	const [isTouched, setIsTouched] = useState(false);
 	const [storeText, setStoreText] = useState();
 
-	
+	const uTxt = useContext(textCtx);
+	// console.log(uTxt.userText);
 	const userTextChangeHandler = (e) => {
 		if (e.nativeEvent.inputType === 'deleteContentBackward') {
 			setdeletedText(e.target.value);
@@ -17,6 +19,7 @@ function UiText(props) {
 		props.txtState(true);
 		setIsTouched(true);
 		setUserText(e.target.value);
+		uTxt.setUTxt(e.target.value)
 	};
 	
 	useEffect(() => {

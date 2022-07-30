@@ -2,7 +2,7 @@
 function NeonSwitch(props) {
 
 
-	console.log(props.neonSwitchState);
+	// console.log(props.neonSwitchState);
 	
 	const switchHandler =()=>{
 		
